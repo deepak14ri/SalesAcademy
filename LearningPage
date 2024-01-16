@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/style.css" rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/owl.carousel.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="/_layouts/15/init.js"></script>
+    <script type="text/javascript" src="/_layouts/15/MicrosoftAjax.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.core.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <style>
+        span.evenod.icon-color {
+            stroke: black;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+        }
+
+        #recipeCarousel .col-md-3 {
+            padding: 5px 7px;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+
+        .tabcontent.active {
+            display: block;
+        }
+
+        button.tablinks.active {
+            border-radius: 12px;
+            background: #000;
+            color: #fff;
+        }
+
+        button.tablinks {
+            color: #1E1E1E;
+            text-align: center;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            min-width: 100px;
+            min-height: 35px;
+            margin: 10px 10px;
+            background-color: transparent;
+        }
+
+        section.tab_cls {
+            margin-top: 55px;
+        }
+
+        .Course_learning_banner {
+            background-image: url(https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Course_learning.png);
+        }
+
+        #owl-demo .item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .owl-controls .owl-page,
+        .owl-controls .owl-buttons div {
+            color: transparent;
+        }
+
+        .Course_learning_banner .owl-controls .owl-buttons .owl-prev,
+        .owl-controls .owl-buttons .owl-next {
+            background-image: url(https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/Caret-Right.png);
+        }
+
+        /* Add this CSS to your stylesheet or define it in your HTML */
+
+        .rolling {
+            animation: rollingAnimation 3s infinite linear;
+            /* You can adjust the animation duration and timing function */
+        }
+        .tab_cls .slider_item .card-img-overlay .btn_cls{width: calc(100%);}
+        .tab_cls .carousel-inner .card {
+            height: 100%;
+        }
+        .tab_cls .carousel-inner .card .card-img {
+    min-height: 166px;
+}
+        @keyframes rollingAnimation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <section id="learning_banner" class="banner_top Course_learning_banner">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Home.aspx">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Course_learning.aspx">Learning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help Center</a>
+                        </li>
+                    </ul>
+
+                    <div class="right_nav">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">
+                                <img
+                                    src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Search-icon.png" />
+                            </button>
+                        </form>
+                        <ul class="drop_item">
+                            <li>
+                                <img
+                                    src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Bell.png" />
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row top-center">
+                <div class="col-md-6">
+                    <div class="banner_text_left">
+                        <h5>Learning today,</h5>
+                        <h2><span style="text-transform: uppercase;">Leading</span> tomorrow!</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+
+                        <div class="item">
+                            <div class="right_banner_text">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img
+                                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/potential.png">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h4><span>Marketing For Growth</span>
+                                            <div class="btn_cls"><button>Continue</button> </div>
+                                        </h4>
+                                        <p>Set your sights high, chart your progress, and watch your skills and
+                                            knowledge soar in Sales</p>
+                                        <p> <strong>30min left</strong> </p>
+                                        <p class="Course-progress"> Course progress </p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 70%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="right_banner_text">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img
+                                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/potential.png">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h4><span>Marketing For Growth</span>
+                                            <div class="btn_cls"><button>Continue</button> </div>
+                                        </h4>
+                                        <p>Set your sights high, chart your progress, and watch your skills and
+                                            knowledge soar in Sales</p>
+                                        <p> <strong>30min left</strong> </p>
+                                        <p class="Course-progress"> Course progress </p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 70%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="right_banner_text">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img
+                                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/potential.png">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h4><span>Marketing For Growth</span>
+                                            <div class="btn_cls"><button>Continue</button> </div>
+                                        </h4>
+                                        <p>Set your sights high, chart your progress, and watch your skills and
+                                            knowledge soar in Sales</p>
+                                        <p> <strong>30min left</strong> </p>
+                                        <p class="Course-progress"> Course progress </p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 70%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="tab_cls">
+        <div class="container">
+            <div class="row">
+                <div class="tab">
+                    <button class="tablinks active" onclick="openCity(event, 'All')">All</button>
+                    <button class="tablinks" onclick="openCityBookMarks(event, 'Bookmarked-Courses')"
+                        style="color: #BD8917; background: #FAF4E8;border-radius: 12px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path
+                                d="M16.6311 3.68554C13.9011 3.22787 11.0993 3.22787 8.36931 3.68554C7.37197 3.85274 6.5777 4.61841 6.37773 5.61118C5.46161 10.1593 5.41161 14.8393 6.23038 19.406L6.56374 21.2652C6.66653 21.8385 7.36543 22.0676 7.78769 21.6665L11.8115 17.844C12.1974 17.4773 12.803 17.4773 13.189 17.844L17.2127 21.6665C17.6349 22.0676 18.3338 21.8385 18.4366 21.2652L18.77 19.406C19.5887 14.8394 19.5388 10.1593 18.6226 5.61118C18.4227 4.61841 17.6284 3.85274 16.6311 3.68554Z"
+                                fill="#BD8917" />
+                        </svg> Bookmarked Courses
+                    </button>
+
+                    <button class="tablinks" onclick="openCity(event, 'Category-Management')">Category
+                        Management</button>
+                    <button class="tablinks" onclick="openCity(event, 'Finance')">Finance</button>
+                    <button class="tablinks" onclick="openCity(event, 'Negotiation-Basics')">Negotiation Basics</button>
+                    <button class="tablinks" onclick="openCity(event, 'Customer-centricity')">Customer
+                        centricity</button>
+                </div>
+
+                <div id="All" class="tabcontent active">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardAll">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+                <div id="Bookmarked-Courses" class="tabcontent">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardBookmks">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+                <div id="Category-Management" class="tabcontent">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardCtMgt">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+
+                </div>
+
+
+                <div id="Finance" class="tabcontent">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardFinance">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+                <div id="Negotiation-Basics" class="tabcontent">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardNegoBsc">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+                <div id="Customer-centricity" class="tabcontent">
+                    <section class="slider_item">
+                        <div class="container text-center my-3">
+                            <div style="text-align: left; margin-bottom: 25px">
+                            </div>
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox" id="dynamicCourseCardCstCen">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer_cls">
+        <div class="container">
+            <footer class="row row-cols-5 py-5">
+                <div class="col-md-5">
+                    <a class="bottom-top" href="#learning_banner"><img
+                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/top-arrow.png"
+                            alt=""> </a>
+                    <a href="/" class="d-flex align-items-center link-dark text-decoration-none">
+                        <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png">
+                    </a>
+                    <p>Designed by UpscAle</p>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Learning</a></li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Courses</a></li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Sessions</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Community</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Help Center</a>
+                                </li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/owl.carousel.js"></script>
+
+    <script>
+        document
+            .querySelector("[data-automation-id='contentScrollRegion']")
+            .addEventListener("scroll", (event) => {
+                if (
+                    document.querySelector("[data-automation-id='contentScrollRegion']")
+                        .scrollTop > 30
+                ) {
+                    $("nav").addClass("newclass");
+                } else {
+                    $("nav").removeClass("newclass");
+                }
+            });
+
+    </script>
+    <script>
+        document
+            .querySelector("[data-automation-id='contentScrollRegion']")
+            .addEventListener("scroll", (event) => {
+                if (
+                    document.querySelector("[data-automation-id='contentScrollRegion']")
+                        .scrollTop > 30
+                ) {
+                    $("nav").addClass("newclass");
+                } else {
+                    $("nav").removeClass("newclass");
+                }
+            });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(() => {
+                $("#news-slider").owlCarousel({
+                    items: 3,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [980, 2],
+                    itemsMobile: [600, 1],
+                    navigation: true,
+                    navigationText: ["", ""],
+                    pagination: true,
+                    autoPlay: true,
+                });
+                $(".testimonial_carousel").owlCarousel({
+                    items: 3,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [980, 2],
+                    itemsMobile: [600, 1],
+                    navigation: true,
+                    navigationText: ["", ""],
+                    pagination: true,
+                    autoPlay: true,
+                });
+
+                // ------------------- slider first --------------
+                let items = document.querySelectorAll(".carousel .carousel-item");
+
+                items.forEach((el) => {
+                    const minPerSlide = 4;
+                    let next = el.nextElementSibling;
+                    for (let i = 1; i < minPerSlide; i++) {
+                        if (!next) {
+                            // wrap carousel by using first child
+                            next = items[0];
+                        }
+                        let cloneChild = next.cloneNode(true);
+                        el.appendChild(cloneChild.children[0]);
+                        next = next.nextElementSibling;
+                    }
+                });
+            }, 4000);
+        });
+    </script>
+    <script>
+        function openCity(evt, cityName) {
+            console.log("citname is:", cityName);
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+    <script>
+        function openCityBookMarks(evt, bookmark) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(bookmark).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+
+                navigation: true, // Show next and prev buttons
+
+                slideSpeed: 300,
+                paginationSpeed: 400,
+
+                items: 1,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
+                itemsTablet: false,
+                itemsMobile: false
+
+            });
+
+        });
+    </script>
+
+    <!-- dynamic courses contents -->
+    <script>
+
+        $(document).ready(function () {
+            fetchDynamicContent();
+            getBookMarkCourse()
+        })
+
+        //  document.addEventListener("DOMContentLoaded", fetchDynamicContent);
+        var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+
+        async function fetchDynamicContent() {
+            let bookmarklist;
+            console.log("called dynamc");
+            try {
+                let apiEndpoint =
+                    "https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/_api/web/lists/getbytitle('Courses')/items?$orderby=ID desc";
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    bookmarklist= await getBookMarkCourse();
+                    //const itemId = data.d.results[0].ID;
+                    renderDynamicContent(data.d.results,bookmarklist);
+                    // fetchBookmarkCourses();
+                } else {
+                    throw new Error("Error fetching Dynamic_Contents data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async  function getBookMarkCourse(){
+        var username = _spPageContextInfo.userLoginName;
+        var requestUri = _spPageContextInfo.webAbsoluteUrl +`/_api/web/lists/getByTitle('Bookmarks')/items?$filter=(user eq '${username}')`;
+        try {
+            const response = await fetch(requestUri, {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json;odata=verbose"
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                const items = data.d.results;
+                renderbookmarkContent(items);
+                return items;
+            } else {
+                console.error("Request Failed with Status", response.status);
+            }
+        } catch (error) {
+
+        }
+        }
+      
+
+        function renderbookmarkContent(contents) {
+            let bookmark="";
+            contents.forEach((item)=>{
+                bookmark+=`<div class="col-md-3">
+          <div class="card">
+            <div class="card-img">
+              <span class="cloclk">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                </svg>
+                <abbr>${item.duration} mins</abbr>
+              </span>
+              <img src="${item.image}" class="img-fluid" />
+            <span class="evenod icon-color" onclick="removeFromBookmarks('${item.ID}')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5621 5.28845C13.969 4.85372 11.3068 4.85372 8.71367 5.28845C8.22567 5.37026 7.83808 5.74519 7.7408 6.22813C6.85573 10.6221 6.80743 15.1436 7.59846 19.5555L7.76201 20.4677L11.4326 16.9807C12.108 16.339 13.1678 16.339 13.8432 16.9807L17.5136 20.4677L17.6773 19.5555C18.4683 15.1436 18.42 10.6221 17.5349 6.22813C17.4376 5.74519 17.0501 5.37026 16.5621 5.28845ZM8.46566 3.8091C11.223 3.34684 14.0527 3.34684 16.8101 3.8091C17.9093 3.99338 18.7849 4.83719 19.0054 5.93193C19.9277 10.5108 19.9781 15.2226 19.1537 19.8202L18.9323 21.0555C18.7464 22.0924 17.4823 22.5068 16.7186 21.7813L12.8101 18.0682C12.7136 17.9765 12.5622 17.9765 12.4657 18.0682L8.55713 21.7813C7.79343 22.5068 6.52939 22.0924 6.34349 21.0555L6.122 19.8202C5.29769 15.2226 5.34801 10.5108 6.27034 5.93193C6.49085 4.83719 7.36645 3.99338 8.46566 3.8091Z" fill="white"></path>
+          </svg>
+            <div id="rollingIcon${item.ID}" class="rolling"></div>
+          </span>
+            </div>
+            <div class="card-img-overlay">
+              <h4>${item.Title}</h4>
+              <p>${item.description}</p>
+              
+              <div class="btn_cls">
+                <button onclick="window.open('https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Course_Overview.aspx?module=${item.courseId}', '_blank')">
+                  Start Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>`
+            })
+            $("#dynamicCourseCardBookmks").html(`<div class='row'>${bookmark}</div>`);
+        }
+
+        var bookmarkStates = {};
+
+        var uniqueArray = [];
+        var uniqueArrayNotAll = [];
+        function renderDynamicContent(contents,bookmarkList) {
+            console.log("bookmarklist is",bookmarkList)
+            var username = _spPageContextInfo.userLoginName;
+    var categoryData = {
+        'All': "#dynamicCourseCardAll",
+        "Category Management": "#dynamicCourseCardCtMgt",
+        'Finance': "#dynamicCourseCardFinance",
+        "Negotiation Basics": "#dynamicCourseCardNegoBsc",
+        "Customer centricity": "#dynamicCourseCardCstCen",
+        "Bookmarked Courses": "#dynamicCourseCardBookmks",
+    };
+
+    let allCourses = "";
+    let CategoryManagement = "";
+    let Finance = "";
+    let NegotiationBasics = "";
+    let CustomerCentricity = "";
+    let uniqueCourseIds = new Set(); // To track unique Course_ids
+    contents.forEach((item, index) => {
+        let tags = item.tag.split(','); // Split tags by commas
+       
+       
+        // Iterate through each tag
+        tags.forEach(tag => {
+
+             // Check if the current course is bookmarked for the current user
+        const isBookmarked = bookmarkList.some(bookmark => bookmark.courseId === item.Course_id && bookmark.user ===username);
+       
+       let bookmark=isBookmarked?` <span class="evenod icon-color" onclick="removeFromBookmarks('${item.ID}')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5621 5.28845C13.969 4.85372 11.3068 4.85372 8.71367 5.28845C8.22567 5.37026 7.83808 5.74519 7.7408 6.22813C6.85573 10.6221 6.80743 15.1436 7.59846 19.5555L7.76201 20.4677L11.4326 16.9807C12.108 16.339 13.1678 16.339 13.8432 16.9807L17.5136 20.4677L17.6773 19.5555C18.4683 15.1436 18.42 10.6221 17.5349 6.22813C17.4376 5.74519 17.0501 5.37026 16.5621 5.28845ZM8.46566 3.8091C11.223 3.34684 14.0527 3.34684 16.8101 3.8091C17.9093 3.99338 18.7849 4.83719 19.0054 5.93193C19.9277 10.5108 19.9781 15.2226 19.1537 19.8202L18.9323 21.0555C18.7464 22.0924 17.4823 22.5068 16.7186 21.7813L12.8101 18.0682C12.7136 17.9765 12.5622 17.9765 12.4657 18.0682L8.55713 21.7813C7.79343 22.5068 6.52939 22.0924 6.34349 21.0555L6.122 19.8202C5.29769 15.2226 5.34801 10.5108 6.27034 5.93193C6.49085 4.83719 7.36645 3.99338 8.46566 3.8091Z" fill="white"></path>
+          </svg>
+            <div id="rollingIcon${item.ID}" class="rolling"></div>
+          </span>`:`<span class="evenod" onclick="saveToBookmarks('${item.ID}','${item.Course_id}','${item.Title}','${item.Duration}','${item.Image}','${item.Description}')">
+           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+             <path fill-rule='evenodd' clip-rule='evenodd' d='M16.5621 5.28845C13.969 4.85372 11.3068 4.85372 8.71367 5.28845C8.22567 5.37026 7.83808 5.74519 7.7408 6.22813C6.85573 10.6221 6.80743 15.1436 7.59846 19.5555L7.76201 20.4677L11.4326 16.9807C12.108 16.339 13.1678 16.339 13.8432 16.9807L17.5136 20.4677L17.6773 19.5555C18.4683 15.1436 18.42 10.6221 17.5349 6.22813C17.4376 5.74519 17.0501 5.37026 16.5621 5.28845ZM8.46566 3.8091C11.223 3.34684 14.0527 3.34684 16.8101 3.8091C17.9093 3.99338 18.7849 4.83719 19.0054 5.93193C19.9277 10.5108 19.9781 15.2226 19.1537 19.8202L18.9323 21.0555C18.7464 22.0924 17.4823 22.5068 16.7186 21.7813L12.8101 18.0682C12.7136 17.9765 12.5622 17.9765 12.4657 18.0682L8.55713 21.7813C7.79343 22.5068 6.52939 22.0924 6.34349 21.0555L6.122 19.8202C5.29769 15.2226 5.34801 10.5108 6.27034 5.93193C6.49085 4.83719 7.36645 3.99338 8.46566 3.8091Z' fill='white'/>
+           </svg>
+           <div id="rollingIcon${item.ID}" class="rolling"></div>
+         </span>`
+
+            let cardHTML = `<div class="col-md-3">
+          <div class="card">
+            <div class="card-img">
+              <span class="cloclk">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                </svg>
+                <abbr>${item.Duration} mins</abbr>
+              </span>
+              <img src="${item.Image}" class="img-fluid" />
+              ${bookmark}
+            </div>
+            <div class="card-img-overlay">
+              <h4>${item.Title}</h4>
+              <p>${item.Description}</p>
+              
+              <div class="btn_cls">
+                <button onclick="window.open('https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Course_Overview.aspx?module=${item.Course_id}', '_blank')">
+                  Start Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+            // Append the card HTML to the corresponding category
+            if (tag.trim() === "Customer Centricity") {
+                CustomerCentricity += cardHTML;
+            } else if (tag.trim() === 'Negotiations') {
+                NegotiationBasics += cardHTML;
+            } else if (tag.trim() === 'Finance') {
+                Finance += cardHTML;
+            } else if (tag.trim() === 'Category Management') {
+                CategoryManagement += cardHTML;
+            }
+
+             // Check for uniqueness based on Course_id
+             if (!uniqueCourseIds.has(item.Course_id.trim())) {
+                allCourses += cardHTML;
+                uniqueCourseIds.add(item.Course_id.trim());
+            }
+
+        });
+    });
+
+    // Set the HTML content for each category
+    $("#dynamicCourseCardCstCen").html(`<div class='row'>${CustomerCentricity}</div>`);
+    $("#dynamicCourseCardNegoBsc").html(`<div class='row'>${NegotiationBasics}</div>`);
+    $("#dynamicCourseCardFinance").html(`<div class='row'>${Finance}</div>`);
+    $("#dynamicCourseCardCtMgt").html(`<div class='row'>${CategoryManagement}</div>`);
+    $("#dynamicCourseCardAll").html(`<div class='row'>${allCourses}</div>`);
+}
+
+
+
+
+
+          // Function to toggle bookmark state and update UI
+        function toggleBookmark(ID, category) {
+            var bookmarkIcon = $(`#rollingIcon${ID}`);
+
+            // Toggle the bookmark state
+            bookmarkStates[ID] = !bookmarkStates[ID];
+
+            // Toggle the icon-color class
+            $(`#rollingIcon${ID}`).toggleClass("icon-color", bookmarkStates[ID]);
+
+            // Call the respective bookmark function based on the state
+            if (bookmarkStates[ID]) {
+                saveToBookmarks(ID, Title, description, userId, image, duration, tutor, category, 'Yes', courseId);
+            } else {
+                removeFromBookmarks(ID, Title, category, courseId);
+            }
+        }
+
+
+        function filterCourses(category) {
+            console.log("filtered function is called");
+            var allCourseCards = $(`${categoryData[category]} .col-md-3`);
+            console.log("course cards are", allCourseCards);
+
+            if (category === "All") {
+                allCourseCards.show();
+                console.log("Showing all courses.");
+            } else {
+                console.log("else is called");
+                let elseVar = allCourseCards.hide().filter(`[data-category='${category}']`).show();
+                console.log("Else Var", elseVar);
+                console.log(`Filtering and showing courses for category: ${category}`);
+            }
+
+            $(".tablinks").removeClass("active");
+            $(`.tablinks:contains(${category})`).addClass("active");
+        }
+
+
+
+        async function saveToBookmarks(ID, course_id, Title, duration, image, description) {
+    try {
+        // Show rolling icon while processing
+        let rollingIconElement = document.getElementById(`rollingIcon${ID}`);
+        if (rollingIconElement) {
+            rollingIconElement.classList.add("rolling"); // Add rolling class for animation
+        } else {
+            console.warn(`Rolling icon with ID 'rollingIcon${ID}' not found`);
+        }
+
+        var username = _spPageContextInfo.userLoginName;
+        let context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+        let list = context.get_web().get_lists().getByTitle('Bookmarks');
+
+        // Check if the courseId already exists in the bookmarks for the current user
+        let camlQuery = new SP.CamlQuery();
+        camlQuery.set_viewXml(`<View><Query><Where><And><Eq><FieldRef Name='courseId' /><Value Type='Text'>${course_id}</Value></Eq><Eq><FieldRef Name='user' /><Value Type='Text'>${username}</Value></Eq></And></Where></Query></View>`);
+        let existingItems = list.getItems(camlQuery);
+        context.load(existingItems);
+
+        context.executeQueryAsync(
+            function () {
+                if (existingItems.get_count() > 0) {
+                    // Course already exists in bookmarks for the current user
+                    Swal.fire({
+                        title: "Course Already Saved",
+                        text: "This course is already in your bookmarks.",
+                        icon: "warning"
+                    }).then(() => {
+                        // Hide rolling icon after processing
+                        if (rollingIconElement) {
+                            rollingIconElement.classList.remove("rolling");
+                        }
+                    });
+                } else {
+                    // Course doesn't exist in bookmarks, proceed to add
+                    let itemCreateInfo = new SP.ListItemCreationInformation();
+                    let newItem = list.addItem(itemCreateInfo);
+                    newItem.set_item('Title', Title);
+                    newItem.set_item('description', description);
+                    newItem.set_item('courseId', course_id);
+                    newItem.set_item('duration', duration);
+                    newItem.set_item('image', image);
+                    newItem.set_item('user', username);
+                    newItem.update();
+                    context.load(newItem);
+
+                    context.executeQueryAsync(
+                        function () {
+                            console.log("Item created successfully. Item ID: " + newItem.get_id());
+
+                            Swal.fire({
+                                title: "Course Saved to Bookmark",
+                                icon: "success"
+                            }).then(() => {
+                                getBookMarkCourse();
+                                fetchDynamicContent()
+                                // Hide rolling icon after processing
+                                if (rollingIconElement) {
+                                    rollingIconElement.classList.remove("rolling");
+                                }
+                            });
+                        },
+                        function (sender, args) {
+                            console.log("Error creating item: " + args.get_message());
+                        }
+                    );
+                }
+            },
+            function (sender, args) {
+                console.log("Error checking existing items: " + args.get_message());
+            }
+        );
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+        async function removeFromBookmarks(ID) {
+        var clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+        var oList = clientContext.get_web().get_lists().getByTitle('Bookmarks');
+        var oListItem = oList.getItemById(ID);
+        Swal.fire({
+            title: "Confirm Removal",
+            icon: "info",
+            showCancelButton: true, // Add this line to show the cancel button
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // This code will be executed after the user clicks "OK" on the Swal dialog
+                oListItem.deleteObject();
+                clientContext.executeQueryAsync(
+                    Function.createDelegate(this, this.onQuerySucceeded8),
+                    Function.createDelegate(this, this.onQueryFailed8)
+                );
+
+        } else if (result.isDismissed) {
+            // This code will be executed if the user clicks "Cancel" or outside the Swal dialog
+            console.log("Deletion canceled");
+            // You can add additional actions or remove this block if not needed
+        }
+    });
+
+        }
+        function onQuerySucceeded8() {
+            console.log('Bookmark removed');
+            getBookMarkCourse();
+            fetchDynamicContent()
+        }
+
+        function onQueryFailed8(sender, args) {
+            console.log('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+        }
+
+        async function checkAndUpdate(ID, Title, description, userId, image, duration, tutor, category, bookmarks, courseId) {
+            try {
+                let existingBookmark = await getExistingBookmarkByCourseIdAndUserId(courseId, userId, bookmarks);
+                if (existingBookmark) {
+                    // If bookmark with the same ID, courseId, and bookmarks exists, update it
+                    updateItem(existingBookmark.ID, Title, description, userId, image, duration, tutor, category, bookmarks, courseId);
+                } else {
+                    // If bookmark doesn't exist, create a new one
+                    createItem(ID, Title, description, userId, image, duration, tutor, category, bookmarks, courseId);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+
+        // Update a list item
+        async function updateItem(ID, Title, description, userId, image, duration, tutor, category, bookmarks, courseId) {
+            try {
+                var listName = 'Video_Overview';
+                var updateEndpointUrl = `${siteUrl}/_api/web/lists/getbytitle('${listName}')/items(${ID})`;
+
+                var context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+                var list = context.get_web().get_lists().getByTitle(listName);
+                var item = list.getItemById(ID);
+
+                item.set_item("Title", Title);
+                item.set_item("description_content", description);
+                item.set_item("user_ids", userId);
+                item.set_item("content_img", image);
+                item.set_item("duration", duration);
+                item.set_item("tutor_name", tutor);
+                item.set_item("category_name", category);
+                item.set_item("bookmark_type", 'Yes');
+                item.set_item("course_id", courseId); // Update courseId as well
+
+                item.update();
+
+                context.executeQueryAsync(
+                    function () {
+                        console.log("Item updated successfully.");
+                        fetchDynamicContent();
+                    },
+                    function (sender, args) {
+                        console.log("Error updating item: " + args.get_message());
+                    }
+                );
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        async function createItem(ID, Title, description, userId, image, duration, tutor, category, bookmarks, courseId) {
+            try {
+                // Check if a bookmark with the same courseId and userId exists
+                let existingBookmark = await getExistingBookmarkByCourseIdAndUserId(courseId, userId, 'Yes');
+
+                if (!existingBookmark) {
+                    var listName = 'Video_Overview';
+                    var context = new SP.ClientContext(siteUrl);
+                    var list = context.get_web().get_lists().getByTitle(listName);
+
+                    var itemCreateInfo = new SP.ListItemCreationInformation();
+                    var newItem = list.addItem(itemCreateInfo);
+
+                    newItem.set_item("Title", Title);
+                    newItem.set_item("description_content", description);
+                    newItem.set_item("user_ids", userId);
+                    newItem.set_item("content_img", image);
+                    newItem.set_item("duration", duration);
+                    newItem.set_item("tutor_name", tutor);
+                    newItem.set_item("category_name", category);
+                    newItem.set_item("bookmark_type", 'Yes');
+                    newItem.set_item("course_id", courseId);
+
+                    newItem.update();
+                    context.load(newItem);
+
+                    context.executeQueryAsync(
+                        function () {
+                            console.log("Item created successfully. Item ID: " + newItem.get_id());
+
+                            fetchDynamicContent();
+                        },
+                        function (sender, args) {
+                            console.log("Error creating item: " + args.get_message());
+                        }
+                    );
+                } else {
+                    console.log("Bookmark with courseId and userId already exists. Skip creating a new item.");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Function to check if a bookmark with the same courseId and userId exists
+        async function getExistingBookmarkByCourseIdAndUserId(courseId, userId, bookmarks) {
+            try {
+                var listName = 'Video_Overview';
+                var endpointUrl = `${siteUrl}/_api/web/lists/getbytitle('${listName}')/items?$filter=course_id eq '${courseId}' and user_ids eq '${userId}' and bookmark_type eq 'Yes'`;
+
+                let response = await fetch(endpointUrl, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    if (data.d.results.length > 0) {
+                        return true; // Bookmark with the same courseId and userId exists
+                    } else {
+                        return false; // Bookmark doesn't exist
+                    }
+                } else {
+                    throw new Error("Error fetching bookmark data");
+                }
+            } catch (err) {
+                console.error(err);
+                return false; // Return false in case of an error
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
