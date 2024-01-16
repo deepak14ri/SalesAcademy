@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/style.css" rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/owl.carousel.css"
+        rel="stylesheet" />
+
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js"></script>
+
+    <script src="_layouts/15/sp.runtime.js" type="text/javascript"></script>
+
+    <script src="_layouts/15/sp.js" type="text/javascript"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    .modify_course {
+        margin: 40px 0;
+    }
+
+    .tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px 15px;
+
+        margin-right: 5px;
+    }
+
+    .tab.active {
+        background: #1D1C18;
+        box-shadow: -4px 0px 0px 0px #FFC700;
+        margin-left: 4px;
+    }
+
+    .tab-content {
+        padding: 15px;
+        color: #fff;
+    }
+
+    .modify_course [role="tablist"] button {
+        flex-basis: 50%;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    .video_list li.active {
+        margin-right: 0;
+    }
+
+    .right_nav {
+        max-width: 16%;
+    }
+
+    .banner_top .collapse {
+        justify-content: space-between;
+    }
+
+    #navbarSupportedContent ul.navbar-nav {
+        flex-basis: 84%;
+        justify-content: center;
+    }
+
+    .modify_course .card {
+        height: 100%;
+    }
+
+    .modify_course .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .modify_course div#nav-tab button {
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 126.3%;
+    }
+
+    .modify_course div#nav-tab .active,
+    .modify_course div#nav-tab .active:hover {
+        color: #000;
+        border: 0;
+        border-bottom: 5px solid #FFC700;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 126.3%;
+    }
+
+    .modify_course nav.newclass {
+        position: static !important;
+    }
+
+    .modify_course div#nav-tab {
+        border: 0;
+    }
+
+    .modify_course_banner {
+        max-height: 100px;
+        min-height: 100px;
+        background: #000;
+    }
+
+    .course_detail .cover_edit button {
+        background: transparent;
+    }
+
+    p.edit_top_cls {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    p.edit_top_cls span.delete_cls {
+        opacity: 0.5;
+    }
+
+    .check_box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    span.delete-icon {
+        min-width: 40px;
+        text-align: center;
+    }
+
+    .functional_item {
+        display: flex;
+        max-width: 130px;
+        width: 10%;
+        justify-content: right;
+        align-items: center;
+        min-width: 160px;
+    }
+
+    span.doc_item svg {
+        vertical-align: text-bottom;
+    }
+
+    div#profileImage,
+    div#profileImage1 {
+        border-radius: 12px;
+        overflow: hidden;
+        max-height: 300px;
+    }
+
+    div#profileImage img,
+    div#profileImage1 img {
+        object-fit: cover;
+    }
+
+    div#profileImage,
+    div#profileImage1 {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    div#profileImage img,
+    div#profileImage1 img {
+        width: 100%;
+    }
+
+    div#profileContainer,
+    div#profileContainer1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .testimonial_pannel .item {
+        cursor: pointer;
+    }
+
+    .upload_item {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input#uploadInput,
+    input#uploadInput1 {
+        display: none;
+    }
+
+    label#editButton,
+    label#editButton1 {
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #itemsContainer .item {
+        border-radius: 10px;
+        background: #F4F4F4;
+        margin-bottom: 15px;
+        padding: 20px 29px;
+    }
+
+    .check_box .form-check-input[type=checkbox] {
+        border: 1px solid #1C1B1F;
+        border-radius: 0;
+    }
+
+    .check_box .form-check-input:checked {
+        background-color: #000;
+    }
+
+    .course_detail label {
+        padding-left: 10px;
+    }
+
+    span.doc_item {
+        border-radius: 13px;
+        background: #FFF;
+        display: flex;
+        padding: 2px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        color: #747474;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 22px;
+    }
+
+    .btn_cls button:hover {
+        color: #fff;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+        border-color: unset;
+    }
+
+    @media only screen and (min-width:1600px) {
+        .container {
+            max-width: 1527px;
+        }
+    }
+</style>
+
+<body>
+    <section class="banner_top modify_course_banner" id="home_banner">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Home.aspx">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Course_learning.aspx">Learning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/community-page.aspx">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Homepage-Admin.aspx">Admin
+                                Hub</a>
+                        </li>
+                    </ul>
+
+                    <div class="right_nav">
+                        <ul class="drop_item">
+                            <li>
+                                <img
+                                    src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Bell.png" />
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="modify_course">
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">Courses</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                            type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Testimonials</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row slider_item" id="dynamicCourseCardAll">
+                            
+
+                            <!--<div class="col-md-3 mb-4">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                                class="img-fluid">
+
+                                            <div id="rollingIcon266" class="rolling"></div>
+                                            </span>
+                                        </div>
+                                        <div class="card-img-overlay">
+                                            <h4>Essential Strategies and Skills</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi
+                                                Lorem</p>
+                                            <p><span>by Aaron Lawrence</span></p>
+                                            <div class="btn_cls" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button>
+                                                    Edit/ Modify
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Assets/images/course4.png"
+                                            class="img-fluid">
+
+                                        <div id="rollingIcon266" class="rolling"></div>
+                                        </span>
+                                    </div>
+                                    <div class="card-img-overlay">
+                                        <h4>Essential Strategies and Skills</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi Lorem
+                                        </p>
+                                        <p><span>by Aaron Lawrence</span></p>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Edit/ Modify
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade testimonial_pannel" id="nav-profile" role="tabpanel"
+                        aria-labelledby="nav-profile-tab">
+                        <div class="row slider_item">
+                            <div class="col-md-4 mb-4">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div></div>
+                                        <div>
+                                            <h5 class="card-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="94" height="94"
+                                                    viewBox="0 0 94 94" fill="none">
+                                                    <path
+                                                        d="M19.0936 33.7813H24.9686C25.3581 33.7813 25.7317 33.6265 26.0072 33.3511C26.2826 33.0756 26.4373 32.702 26.4373 32.3125V28.8903C26.4409 27.9762 26.16 27.0837 25.6337 26.3363C25.1074 25.5889 24.3617 25.0238 23.4998 24.7191V22.1047L30.3148 24.3813L27.9942 31.3578C27.9278 31.5585 27.9054 31.7712 27.9287 31.9813C27.9519 32.1914 28.0203 32.394 28.129 32.5753C28.2378 32.7566 28.3844 32.9122 28.5589 33.0317C28.7333 33.1511 28.9315 33.2314 29.1398 33.2672L46.7649 36.2047H47.2495L64.8745 33.2672C65.0829 33.2314 65.2811 33.1511 65.4555 33.0317C65.63 32.9122 65.7766 32.7566 65.8853 32.5753C65.9941 32.394 66.0625 32.1914 66.0857 31.9813C66.109 31.7712 66.0866 31.5585 66.0202 31.3578L63.6849 24.3813L75.4348 20.4891C75.7179 20.3942 75.9653 20.2154 76.1442 19.9764C76.323 19.7374 76.4248 19.4496 76.436 19.1513C76.4472 18.853 76.3672 18.5584 76.2067 18.3067C76.0462 18.055 75.8128 17.8582 75.5377 17.7425L47.6314 5.9925C47.4502 5.91575 47.2554 5.8762 47.0586 5.8762C46.8618 5.8762 46.667 5.91575 46.4858 5.9925L18.5795 17.7425C18.3044 17.8582 18.071 18.055 17.9105 18.3067C17.75 18.5584 17.67 18.853 17.6812 19.1513C17.6924 19.4496 17.7942 19.7374 17.973 19.9764C18.1519 20.2154 18.3993 20.3942 18.6823 20.4891L20.6211 21.1353V24.7191C19.7593 25.0238 19.0136 25.5889 18.4872 26.3363C17.9609 27.0837 17.6801 27.9762 17.6836 28.8903V32.3125C17.6833 32.6921 17.8299 33.057 18.0928 33.3308C18.3557 33.6047 18.7143 33.7661 19.0936 33.7813ZM46.9999 33.2672L31.3136 30.6528L33.5755 23.8525C34.5742 23.0447 38.7895 20.0778 46.9999 20.0778C55.2102 20.0778 59.4255 23.0153 60.4242 23.8525L62.6861 30.6528L46.9999 33.2672ZM46.9999 8.94469L70.7348 18.9469L62.6861 21.6347C62.6087 21.6718 62.535 21.7161 62.4658 21.7669C61.3642 20.7975 56.5908 17.155 46.9999 17.155C37.4089 17.155 32.6355 20.7975 31.5339 21.7669C31.4642 21.7211 31.3904 21.6818 31.3136 21.6494L23.2648 18.9616L46.9999 8.94469ZM20.5623 28.905C20.5443 28.7076 20.5699 28.5087 20.6373 28.3223C20.7047 28.1358 20.8123 27.9666 20.9525 27.8264C21.0927 27.6862 21.2619 27.5786 21.4483 27.5112C21.6348 27.4438 21.8337 27.4182 22.0311 27.4363C22.2285 27.4182 22.4274 27.4438 22.6138 27.5112C22.8003 27.5786 22.9695 27.6862 23.1097 27.8264C23.2499 27.9666 23.3575 28.1358 23.4249 28.3223C23.4923 28.5087 23.5179 28.7076 23.4998 28.905V30.8438H20.5623V28.905Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M77.7409 43.9891V42.0209C77.7392 41.5081 77.6349 41.0007 77.4342 40.5287C77.2336 40.0567 76.9406 39.6296 76.5725 39.2725C76.2044 38.9153 75.7686 38.6353 75.2908 38.449C74.813 38.2627 74.3027 38.1738 73.79 38.1875C64.596 38.2956 55.5057 40.1445 47 43.6366C38.4943 40.1445 29.404 38.2956 20.21 38.1875C19.6951 38.1669 19.1815 38.2529 18.7013 38.4399C18.2211 38.6269 17.7847 38.911 17.4194 39.2744C17.051 39.6304 16.7583 40.0573 16.5589 40.5292C16.3595 41.0012 16.2575 41.5086 16.2591 42.0209V43.9891C14.9725 44.3125 13.8305 45.0558 13.0138 46.1013C12.1972 47.1467 11.7524 48.4346 11.75 49.7612V81.2806C11.75 82.866 12.3798 84.3865 13.5009 85.5076C14.6219 86.6286 16.1424 87.2584 17.7278 87.2584H76.2722C77.8576 87.2584 79.3781 86.6286 80.4991 85.5076C81.6202 84.3865 82.25 82.866 82.25 81.2806V49.7612C82.2476 48.4346 81.8028 47.1467 80.9862 46.1013C80.1695 45.0558 79.0275 44.3125 77.7409 43.9891ZM73.8634 41.125C73.9856 41.1232 74.1069 41.1457 74.2203 41.1911C74.3338 41.2365 74.4371 41.3039 74.5244 41.3894C74.6128 41.4721 74.6832 41.5722 74.7312 41.6834C74.7792 41.7946 74.8038 41.9145 74.8034 42.0356V77.8437C74.8036 78.0764 74.7132 78.2999 74.5515 78.4671C74.3898 78.6343 74.1694 78.7321 73.9369 78.7397C65.2337 78.8694 56.618 80.4991 48.4688 83.5572V46.2069C56.5549 42.9853 65.1602 41.2632 73.8634 41.125ZM19.1819 42.0209C19.1815 41.8998 19.2061 41.7799 19.2541 41.6687C19.3021 41.5575 19.3725 41.4574 19.4609 41.3747C19.546 41.2903 19.6468 41.2235 19.7577 41.1781C19.8686 41.1327 19.9874 41.1097 20.1072 41.1103C28.8212 41.2497 37.4368 42.9768 45.5312 46.2069V83.5572C37.3782 80.4924 28.7574 78.8577 20.0484 78.725C19.8159 78.7174 19.5955 78.6196 19.4338 78.4524C19.2721 78.2852 19.1818 78.0617 19.1819 77.8291V42.0209ZM14.6875 81.2806V49.7612C14.6892 49.2203 14.8359 48.6898 15.1123 48.2248C15.3887 47.7598 15.7847 47.3775 16.2591 47.1175V77.8437C16.2549 78.8401 16.6419 79.7983 17.3368 80.5124C18.0316 81.2265 18.9789 81.6394 19.975 81.6625C26.2033 81.8101 32.3916 82.7026 38.4078 84.3209H17.7278C16.9215 84.3209 16.1482 84.0006 15.578 83.4304C15.0078 82.8603 14.6875 82.087 14.6875 81.2806ZM79.3125 81.2806C79.3125 82.087 78.9922 82.8603 78.422 83.4304C77.8518 84.0006 77.0785 84.3209 76.2722 84.3209H55.5628C61.5885 82.7001 67.7868 81.8076 74.025 81.6625C75.0211 81.6394 75.9684 81.2265 76.6632 80.5124C77.3581 79.7983 77.745 78.8401 77.7409 77.8437V47.1175C78.2153 47.3775 78.6113 47.7598 78.8877 48.2248C79.1641 48.6898 79.3108 49.2203 79.3125 49.7612V81.2806Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M23.2502 47.8812C24.719 47.9841 26.1877 48.1163 27.6565 48.2925H27.9062C28.2957 48.3159 28.6786 48.1835 28.9706 47.9246C29.2625 47.6657 29.4397 47.3014 29.4631 46.9119C29.4864 46.5223 29.3541 46.1395 29.0952 45.8475C28.8363 45.5555 28.472 45.3784 28.0824 45.355C26.6137 45.1641 25.0127 45.0319 23.4999 44.9291C23.1104 44.9037 22.7268 45.0342 22.4334 45.2917C22.1401 45.5493 21.961 45.9128 21.9357 46.3023C21.9104 46.6919 22.0409 47.0755 22.2984 47.3689C22.5559 47.6622 22.9195 47.8412 23.309 47.8666L23.2502 47.8812Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M21.8842 50.9656C21.86 51.3529 21.9901 51.7341 22.246 52.0258C22.502 52.3175 22.863 52.4961 23.2501 52.5225C25.9867 52.7016 28.7123 53.0203 31.4164 53.4772H31.6661C32.0556 53.5103 32.4424 53.3873 32.7412 53.1353C33.0401 52.8832 33.2266 52.5228 33.2597 52.1333C33.2928 51.7437 33.1698 51.357 32.9178 51.0581C32.6657 50.7593 32.3053 50.5728 31.9158 50.5397C29.1282 50.0841 26.3192 49.7703 23.4998 49.5997C23.3034 49.5795 23.1048 49.5992 22.9161 49.6575C22.7274 49.7158 22.5524 49.8116 22.4016 49.9392C22.2508 50.0667 22.1272 50.2233 22.0383 50.3997C21.9494 50.576 21.897 50.7685 21.8842 50.9656Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M21.8842 58.8528C21.86 59.2401 21.9901 59.6213 22.246 59.913C22.502 60.2047 22.863 60.3833 23.2501 60.4097C29.2323 60.7853 35.1488 61.87 40.8751 63.6409C41.0212 63.6631 41.1697 63.6631 41.3158 63.6409C41.7053 63.6994 42.1021 63.6007 42.4189 63.3665C42.7356 63.1324 42.9464 62.782 43.0048 62.3925C43.0633 62.003 42.9646 61.6062 42.7304 61.2894C42.4963 60.9726 42.1459 60.7619 41.7564 60.7034C35.8189 58.9153 29.6909 57.8356 23.4998 57.4869C23.3034 57.4667 23.1048 57.4864 22.9161 57.5447C22.7274 57.603 22.5524 57.6988 22.4016 57.8263C22.2508 57.9539 22.1272 58.1105 22.0383 58.2869C21.9494 58.4632 21.897 58.6557 21.8842 58.8528Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M41.8006 66.3287C35.8549 64.4877 29.7117 63.3587 23.4999 62.9653C23.3071 62.9528 23.1136 62.9784 22.9306 63.0406C22.7476 63.1028 22.5787 63.2005 22.4334 63.328C22.2882 63.4555 22.1694 63.6104 22.0841 63.7838C21.9987 63.9572 21.9483 64.1457 21.9357 64.3386C21.9232 64.5315 21.9488 64.7249 22.011 64.9079C22.0732 65.0909 22.1709 65.2599 22.2984 65.4051C22.4259 65.5504 22.5808 65.6691 22.7542 65.7545C22.9276 65.8399 23.1161 65.8903 23.309 65.9028C29.2911 66.2789 35.2075 67.3635 40.934 69.1341C41.08 69.1562 41.2286 69.1562 41.3746 69.1341C41.7642 69.1925 42.161 69.0938 42.4777 68.8597C42.7945 68.6255 43.0053 68.2752 43.0637 67.8856C43.1221 67.4961 43.0234 67.0993 42.7893 66.7825C42.5552 66.4658 42.2048 66.255 41.8152 66.1966L41.8006 66.3287Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M41.8006 71.9688C35.8519 70.1523 29.7088 69.0479 23.4999 68.6788C23.3071 68.6662 23.1136 68.6918 22.9306 68.754C22.7476 68.8162 22.5787 68.9139 22.4334 69.0414C22.1401 69.299 21.961 69.6625 21.9357 70.052C21.9104 70.4416 22.0409 70.8252 22.2984 71.1186C22.5559 71.4119 22.9195 71.5909 23.309 71.6163C29.2912 71.9919 35.2076 73.0766 40.934 74.8475C41.08 74.8697 41.2286 74.8697 41.3746 74.8475C41.7642 74.9059 42.161 74.8072 42.4777 74.5731C42.7945 74.339 43.0053 73.9886 43.0637 73.5991C43.1221 73.2095 43.0234 72.8127 42.7893 72.496C42.5552 72.1792 42.2048 71.9684 41.8152 71.91L41.8006 71.9688Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6255 63.7144C52.7716 63.7365 52.9201 63.7365 53.0662 63.7144C58.7925 61.9433 64.709 60.8586 70.6912 60.4831C70.884 60.4706 71.0726 60.4202 71.246 60.3348C71.4194 60.2494 71.5742 60.1307 71.7018 59.9854C71.8293 59.8402 71.9269 59.6712 71.9892 59.4882C72.0514 59.3052 72.077 59.1118 72.0644 58.9189C72.0519 58.726 72.0015 58.5375 71.9161 58.3641C71.8307 58.1907 71.712 58.0358 71.5668 57.9083C71.4215 57.7808 71.2526 57.6831 71.0696 57.6209C70.8866 57.5587 70.6931 57.5331 70.5002 57.5456C64.2686 57.9338 58.1054 59.0629 52.1408 60.9091C51.7513 60.9675 51.4009 61.1783 51.1668 61.495C50.9327 61.8118 50.834 62.2086 50.8924 62.5981C50.9508 62.9877 51.1616 63.338 51.4784 63.5722C51.7951 63.8063 52.1919 63.905 52.5815 63.8466L52.6255 63.7144Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6255 69.1928C52.7716 69.215 52.9201 69.215 53.0662 69.1928C58.7926 67.4221 64.709 66.3375 70.6912 65.9616C71.0783 65.9352 71.4393 65.7566 71.6953 65.4649C71.9512 65.1732 72.0813 64.792 72.0571 64.4047C72.0535 64.2066 72.0099 64.0114 71.9289 63.8306C71.8478 63.6499 71.7311 63.4874 71.5857 63.3529C71.4402 63.2185 71.2691 63.1148 71.0826 63.0482C70.896 62.9816 70.6979 62.9534 70.5002 62.9653C64.2686 63.3539 58.1055 64.483 52.1408 66.3288C51.7513 66.3872 51.4009 66.598 51.1668 66.9147C50.9327 67.2315 50.834 67.6283 50.8924 68.0178C50.9508 68.4074 51.1616 68.7577 51.4784 68.9918C51.7951 69.226 52.1919 69.3247 52.5815 69.2663L52.6255 69.1928Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6254 74.9063C52.7715 74.9284 52.92 74.9284 53.066 74.9063C58.7924 73.1352 64.7088 72.0505 70.691 71.675C71.0806 71.6497 71.4441 71.4707 71.7016 71.1773C71.9592 70.884 72.0896 70.5003 72.0643 70.1108C72.039 69.7212 71.86 69.3577 71.5666 69.1002C71.2733 68.8426 70.8896 68.7122 70.5001 68.7375C64.2887 69.0862 58.1406 70.1708 52.1848 71.9688C51.7953 72.0272 51.4449 72.238 51.2108 72.5547C50.9766 72.8715 50.8779 73.2683 50.9364 73.6578C50.9948 74.0474 51.2056 74.3977 51.5223 74.6318C51.8391 74.866 52.2359 74.9647 52.6254 74.9063Z"
+                                                        fill="#929292" />
+                                                </svg>
+                                            </h5>
+                                            <p class="card-text">Click to add a new testimonials</p>
+                                        </div>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Add New
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item" data-bs-toggle="modal" data-bs-target="#exampleModal-t">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="item">
+                                    <div class="testimonial_client d-flex">
+                                        <div class="testimonial_comment">
+                                            <p class="w-qoute">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="72"
+                                                    viewBox="0 0 82 72" fill="none">
+                                                    <path opacity="0.5"
+                                                        d="M17.1253 32.2746C17.1253 34.6898 17.8938 36.6658 19.4307 38.2026C20.9675 39.7395 22.9435 40.508 25.3586 40.508H31.616V71.4653H0V0H17.1253V32.2746ZM49.4 0H66.5253V32.2746C66.5253 34.6898 67.2937 36.6658 68.8306 38.2026C70.3675 39.7395 72.3435 40.508 74.7586 40.508H81.0159V71.4653H49.4V0Z"
+                                                        fill="#0D0D0D" fill-opacity="0.07" />
+                                                </svg>
+                                                <span class="edit_text_cls">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <mask id="mask0_1651_1128" style="mask-type:alpha"
+                                                            maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                                                            height="24">
+                                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                                        </mask>
+                                                        <g mask="url(#mask0_1651_1128)">
+                                                            <path
+                                                                d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                                                fill="black" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </p>
+                                            <p class="white">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                                                et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                                                amet sapien fringilla, mattis ligula consectetur, ultrices
+                                                mauris.
+                                            </p>
+                                        </div>
+                                        <div class="testimonial_img">
+                                            <div class="user_detail">
+                                                <div class="user_img">
+                                                    <img
+                                                        src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user.png">
+                                                </div>
+                                                <div class="user_post">
+                                                    <h4>Arun Suresh</h4>
+                                                    <h6>Manager Analyst</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <!-- The Modal -->
+    <div class="modal course_detail" id="exampleModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Course Details</h4>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Course Title</label>
+                                    <input type="text" class="form-control" id="courseTitle" placeholder="type here...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Course Description</label>
+                                    <textarea class="form-control" id="courseDescription"
+                                        placeholder="(min 50 words)"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Link to Course</label>
+                                            <input type="text" class="form-control" id="courseLink"
+                                                placeholder="type here...">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Course Duration</label>
+                                            <input type="text" class="form-control" id="courseDuration"
+                                                placeholder="(in minutes)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 cover_edit">
+                            <div id="profileContainer">
+                                <div id="profileImage" contenteditable="true">
+                                    <!-- Place your default or initial image here -->
+                                    <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/CoverImage.png"
+                                        alt="Cover Picture" id="uploadImg">
+                                </div>
+                                <div class="upload_item">
+                                    <label for="uploadInput" id="editButton">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none">
+                                            <mask id="mask0_1651_1124" style="mask-type:alpha"
+                                                maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
+                                                <rect width="30" height="30" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1651_1124)">
+                                                <path
+                                                    d="M6.25 23.75H8.03125L20.25 11.5312L18.4688 9.75L6.25 21.9688V23.75ZM3.75 26.25V20.9375L20.25 4.46875C20.5 4.23958 20.776 4.0625 21.0781 3.9375C21.3802 3.8125 21.6979 3.75 22.0312 3.75C22.3646 3.75 22.6875 3.8125 23 3.9375C23.3125 4.0625 23.5833 4.25 23.8125 4.5L25.5313 6.25C25.7813 6.47917 25.9635 6.75 26.0781 7.0625C26.1927 7.375 26.25 7.6875 26.25 8C26.25 8.33333 26.1927 8.65104 26.0781 8.95312C25.9635 9.25521 25.7813 9.53125 25.5313 9.78125L9.0625 26.25H3.75ZM19.3438 10.6562L18.4688 9.75L20.25 11.5312L19.3438 10.6562Z"
+                                                    fill="white" />
+                                            </g>
+                                        </svg>
+                                        Edit</label>
+                                    <input type="file" id="uploadInput" accept="image/*" onchange="handleImageChange()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row course_contents mt-3">
+                        <div class="col-6">
+                            <p>Course Contents</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="edit_top_cls"> <span class="delete_cls" onclick="deleteItem()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                        fill="none">
+                                        <mask id="mask0_1464_716" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="20" height="20">
+                                            <rect width="20" height="20" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_1464_716)">
+                                            <path
+                                                d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                fill="#E56A63" />
+                                        </g>
+                                    </svg>
+                                </span>
+
+                                </span>
+                                <span class="add_content">
+                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_845" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_845)">
+                                                <path
+                                                    d="M7.33301 8.66667H3.33301V7.33334H7.33301V3.33334H8.66634V7.33334H12.6663V8.66667H8.66634V12.6667H7.33301V8.66667Z"
+                                                    fill="#325A6D" />
+                                            </g>
+                                        </svg> Add Content</button></span>
+                                        <span class="create_quiz">Create Quiz</span>
+                                <span class="bottom_drop"></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row" id="itemsContainer">
+                        <div class="col-12 mt-3 item">
+                            <div class="check_box">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Introduction : Brief Intro into Marketing
+                                    </label>
+                                </div>
+
+                                <div class="functional_item">
+                                    <span class="doc_item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_486" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_486)">
+                                                <path
+                                                    d="M4.66667 11.3333H9.33333V10H4.66667V11.3333ZM4.66667 8.66667H11.3333V7.33333H4.66667V8.66667ZM4.66667 6H11.3333V4.66667H4.66667V6ZM3.33333 14C2.96667 14 2.65278 13.8694 2.39167 13.6083C2.13056 13.3472 2 13.0333 2 12.6667V3.33333C2 2.96667 2.13056 2.65278 2.39167 2.39167C2.65278 2.13056 2.96667 2 3.33333 2H12.6667C13.0333 2 13.3472 2.13056 13.6083 2.39167C13.8694 2.65278 14 2.96667 14 3.33333V12.6667C14 13.0333 13.8694 13.3472 13.6083 13.6083C13.3472 13.8694 13.0333 14 12.6667 14H3.33333ZM3.33333 12.6667H12.6667V3.33333H3.33333V12.6667Z"
+                                                    fill="#1C1B1F" />
+                                            </g>
+                                        </svg> Doc
+                                    </span>
+
+                                    <span class="delete-icon" onclick="deleteItem(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="20" height="20">
+                                                <rect width="20" height="20" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_713)">
+                                                <path
+                                                    d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                    fill="#E56A63" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="reorganize">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <mask id="mask0_1464_497" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_497)">
+                                                <path d="M4 15V13H20V15H4ZM4 11V9H20V11H4Z" fill="#1C1B1F" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 item">
+                            <div class="check_box">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Chapter 1 : Basics of Marketing
+                                    </label>
+                                </div>
+
+                                <div class="functional_item">
+
+                                    <span class="doc_item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_751" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_751)">
+                                                <path
+                                                    d="M6.3335 11L11.0002 8.00001L6.3335 5.00001V11ZM8.00016 14.6667C7.07794 14.6667 6.21127 14.4917 5.40016 14.1417C4.58905 13.7917 3.8835 13.3167 3.2835 12.7167C2.6835 12.1167 2.2085 11.4111 1.8585 10.6C1.5085 9.7889 1.3335 8.92223 1.3335 8.00001C1.3335 7.07779 1.5085 6.21112 1.8585 5.40001C2.2085 4.5889 2.6835 3.88334 3.2835 3.28334C3.8835 2.68334 4.58905 2.20834 5.40016 1.85834C6.21127 1.50834 7.07794 1.33334 8.00016 1.33334C8.92238 1.33334 9.78905 1.50834 10.6002 1.85834C11.4113 2.20834 12.1168 2.68334 12.7168 3.28334C13.3168 3.88334 13.7918 4.5889 14.1418 5.40001C14.4918 6.21112 14.6668 7.07779 14.6668 8.00001C14.6668 8.92223 14.4918 9.7889 14.1418 10.6C13.7918 11.4111 13.3168 12.1167 12.7168 12.7167C12.1168 13.3167 11.4113 13.7917 10.6002 14.1417C9.78905 14.4917 8.92238 14.6667 8.00016 14.6667ZM8.00016 13.3333C9.48905 13.3333 10.7502 12.8167 11.7835 11.7833C12.8168 10.75 13.3335 9.4889 13.3335 8.00001C13.3335 6.51112 12.8168 5.25001 11.7835 4.21668C10.7502 3.18334 9.48905 2.66668 8.00016 2.66668C6.51127 2.66668 5.25016 3.18334 4.21683 4.21668C3.1835 5.25001 2.66683 6.51112 2.66683 8.00001C2.66683 9.4889 3.1835 10.75 4.21683 11.7833C5.25016 12.8167 6.51127 13.3333 8.00016 13.3333Z"
+                                                    fill="#1C1B1F" />
+                                            </g>
+                                        </svg> Video
+                                    </span>
+
+                                    <span class="delete-icon" onclick="deleteItem(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="20" height="20">
+                                                <rect width="20" height="20" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_713)">
+                                                <path
+                                                    d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                    fill="#E56A63" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="reorganize">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <mask id="mask0_1464_497" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_497)">
+                                                <path d="M4 15V13H20V15H4ZM4 11V9H20V11H4Z" fill="#1C1B1F" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 item">
+                            <div class="check_box">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Best Practices
+                                    </label>
+                                </div>
+
+                                <div class="functional_item">
+
+                                    <span class="doc_item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_737" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_737)">
+                                                <path
+                                                    d="M8.00016 14.6667C7.6335 14.6667 7.31961 14.5361 7.0585 14.275C6.79739 14.0139 6.66683 13.7 6.66683 13.3333V8.00001C6.66683 7.63334 6.79739 7.31945 7.0585 7.05834C7.31961 6.79723 7.6335 6.66668 8.00016 6.66668H13.3335C13.7002 6.66668 14.0141 6.79723 14.2752 7.05834C14.5363 7.31945 14.6668 7.63334 14.6668 8.00001V13.3333C14.6668 13.7 14.5363 14.0139 14.2752 14.275C14.0141 14.5361 13.7002 14.6667 13.3335 14.6667H8.00016ZM8.00016 13.3333H13.3335V8.00001H8.00016V13.3333ZM4.00016 12V5.33334C4.00016 4.96668 4.13072 4.65279 4.39183 4.39168C4.65294 4.13057 4.96683 4.00001 5.3335 4.00001H12.0002V5.33334H5.3335V12H4.00016ZM1.3335 9.33334V2.66668C1.3335 2.30001 1.46405 1.98612 1.72516 1.72501C1.98627 1.4639 2.30016 1.33334 2.66683 1.33334H9.3335V2.66668H2.66683V9.33334H1.3335Z"
+                                                    fill="#1C1B1F" />
+                                            </g>
+                                        </svg> Presentation
+                                    </span>
+
+                                    <span class="delete-icon" onclick="deleteItem(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="20" height="20">
+                                                <rect width="20" height="20" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_713)">
+                                                <path
+                                                    d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                    fill="#E56A63" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="reorganize">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <mask id="mask0_1464_497" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_497)">
+                                                <path d="M4 15V13H20V15H4ZM4 11V9H20V11H4Z" fill="#1C1B1F" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 item">
+                            <div class="check_box">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Chapter 2 : Market Dynamics
+                                    </label>
+                                </div>
+
+                                <div class="functional_item">
+
+                                    <span class="doc_item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_757" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_757)">
+                                                <path
+                                                    d="M6.3335 11L11.0002 8.00001L6.3335 5.00001V11ZM8.00016 14.6667C7.07794 14.6667 6.21127 14.4917 5.40016 14.1417C4.58905 13.7917 3.8835 13.3167 3.2835 12.7167C2.6835 12.1167 2.2085 11.4111 1.8585 10.6C1.5085 9.7889 1.3335 8.92223 1.3335 8.00001C1.3335 7.07779 1.5085 6.21112 1.8585 5.40001C2.2085 4.5889 2.6835 3.88334 3.2835 3.28334C3.8835 2.68334 4.58905 2.20834 5.40016 1.85834C6.21127 1.50834 7.07794 1.33334 8.00016 1.33334C8.92238 1.33334 9.78905 1.50834 10.6002 1.85834C11.4113 2.20834 12.1168 2.68334 12.7168 3.28334C13.3168 3.88334 13.7918 4.5889 14.1418 5.40001C14.4918 6.21112 14.6668 7.07779 14.6668 8.00001C14.6668 8.92223 14.4918 9.7889 14.1418 10.6C13.7918 11.4111 13.3168 12.1167 12.7168 12.7167C12.1168 13.3167 11.4113 13.7917 10.6002 14.1417C9.78905 14.4917 8.92238 14.6667 8.00016 14.6667ZM8.00016 13.3333C9.48905 13.3333 10.7502 12.8167 11.7835 11.7833C12.8168 10.75 13.3335 9.4889 13.3335 8.00001C13.3335 6.51112 12.8168 5.25001 11.7835 4.21668C10.7502 3.18334 9.48905 2.66668 8.00016 2.66668C6.51127 2.66668 5.25016 3.18334 4.21683 4.21668C3.1835 5.25001 2.66683 6.51112 2.66683 8.00001C2.66683 9.4889 3.1835 10.75 4.21683 11.7833C5.25016 12.8167 6.51127 13.3333 8.00016 13.3333Z"
+                                                    fill="#1C1B1F" />
+                                            </g>
+                                        </svg> Video
+                                    </span>
+
+                                    <span class="delete-icon" onclick="deleteItem(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="20" height="20">
+                                                <rect width="20" height="20" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_713)">
+                                                <path
+                                                    d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                    fill="#E56A63" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="reorganize">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <mask id="mask0_1464_497" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_497)">
+                                                <path d="M4 15V13H20V15H4ZM4 11V9H20V11H4Z" fill="#1C1B1F" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 item">
+                            <div class="check_box">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Skill Test
+                                    </label>
+                                </div>
+
+                                <div class="functional_item">
+
+                                    <span class="doc_item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <mask id="mask0_1464_763" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="16" height="16">
+                                                <rect width="16" height="16" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_763)">
+                                                <path
+                                                    d="M7.96683 12C8.20016 12 8.39739 11.9194 8.5585 11.7583C8.71961 11.5972 8.80016 11.4 8.80016 11.1666C8.80016 10.9333 8.71961 10.7361 8.5585 10.575C8.39739 10.4139 8.20016 10.3333 7.96683 10.3333C7.7335 10.3333 7.53627 10.4139 7.37516 10.575C7.21405 10.7361 7.1335 10.9333 7.1335 11.1666C7.1335 11.4 7.21405 11.5972 7.37516 11.7583C7.53627 11.9194 7.7335 12 7.96683 12ZM7.36683 9.43331H8.60016C8.60016 9.06665 8.64183 8.77776 8.72516 8.56665C8.8085 8.35554 9.04461 8.06665 9.4335 7.69998C9.72238 7.41109 9.95016 7.13609 10.1168 6.87498C10.2835 6.61387 10.3668 6.29998 10.3668 5.93331C10.3668 5.31109 10.1391 4.83331 9.6835 4.49998C9.22794 4.16665 8.68905 3.99998 8.06683 3.99998C7.4335 3.99998 6.91961 4.16665 6.52516 4.49998C6.13072 4.83331 5.85572 5.23331 5.70016 5.69998L6.80016 6.13331C6.85572 5.93331 6.98072 5.71665 7.17516 5.48331C7.36961 5.24998 7.66683 5.13331 8.06683 5.13331C8.42238 5.13331 8.68905 5.23054 8.86683 5.42498C9.04461 5.61942 9.1335 5.83331 9.1335 6.06665C9.1335 6.28887 9.06683 6.4972 8.9335 6.69165C8.80016 6.88609 8.6335 7.06665 8.4335 7.23331C7.94461 7.66665 7.64461 7.99442 7.5335 8.21665C7.42238 8.43887 7.36683 8.84442 7.36683 9.43331ZM8.00016 14.6666C7.07794 14.6666 6.21127 14.4916 5.40016 14.1416C4.58905 13.7916 3.8835 13.3166 3.2835 12.7166C2.6835 12.1166 2.2085 11.4111 1.8585 10.6C1.5085 9.78887 1.3335 8.9222 1.3335 7.99998C1.3335 7.07776 1.5085 6.21109 1.8585 5.39998C2.2085 4.58887 2.6835 3.88331 3.2835 3.28331C3.8835 2.68331 4.58905 2.20831 5.40016 1.85831C6.21127 1.50831 7.07794 1.33331 8.00016 1.33331C8.92238 1.33331 9.78905 1.50831 10.6002 1.85831C11.4113 2.20831 12.1168 2.68331 12.7168 3.28331C13.3168 3.88331 13.7918 4.58887 14.1418 5.39998C14.4918 6.21109 14.6668 7.07776 14.6668 7.99998C14.6668 8.9222 14.4918 9.78887 14.1418 10.6C13.7918 11.4111 13.3168 12.1166 12.7168 12.7166C12.1168 13.3166 11.4113 13.7916 10.6002 14.1416C9.78905 14.4916 8.92238 14.6666 8.00016 14.6666ZM8.00016 13.3333C9.48905 13.3333 10.7502 12.8166 11.7835 11.7833C12.8168 10.75 13.3335 9.48887 13.3335 7.99998C13.3335 6.51109 12.8168 5.24998 11.7835 4.21665C10.7502 3.18331 9.48905 2.66665 8.00016 2.66665C6.51127 2.66665 5.25016 3.18331 4.21683 4.21665C3.1835 5.24998 2.66683 6.51109 2.66683 7.99998C2.66683 9.48887 3.1835 10.75 4.21683 11.7833C5.25016 12.8166 6.51127 13.3333 8.00016 13.3333Z"
+                                                    fill="#1C1B1F" />
+                                            </g>
+                                        </svg> Quiz
+                                    </span>
+
+                                    <span class="delete-icon" onclick="deleteItem(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="20" height="20">
+                                                <rect width="20" height="20" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_713)">
+                                                <path
+                                                    d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                    fill="#E56A63" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="reorganize">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <mask id="mask0_1464_497" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1464_497)">
+                                                <path d="M4 15V13H20V15H4ZM4 11V9H20V11H4Z" fill="#1C1B1F" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="savebtn">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The Modal testimonoal -->
+    <div class="modal course_detail testimonial_popup" id="exampleModal-t">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Name</label>
+                                    <input type="text" class="form-control" placeholder="type here..." />
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <label class="col-form-label">Designation <span
+                                                class="bottom_drop"></span></label>
+
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Select Designation</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Testimonial</label>
+                                    <textarea class="form-control" placeholder="(min 50 words)"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 cover_edit">
+                            <div id="profileContainer1">
+                                <div id="profileImage1" contenteditable="true">
+                                    <!-- Place your default or initial image here -->
+                                    <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/CoverImage.png"
+                                        alt="Cover Picture" >
+                                </div>
+                                <div class="upload_item">
+                                    <label for="uploadInput1" id="editButton1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 30 30" fill="none">
+                                            <mask id="mask0_1651_1124" style="mask-type:alpha"
+                                                maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
+                                                <rect width="30" height="30" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_1651_1124)">
+                                                <path
+                                                    d="M6.25 23.75H8.03125L20.25 11.5312L18.4688 9.75L6.25 21.9688V23.75ZM3.75 26.25V20.9375L20.25 4.46875C20.5 4.23958 20.776 4.0625 21.0781 3.9375C21.3802 3.8125 21.6979 3.75 22.0312 3.75C22.3646 3.75 22.6875 3.8125 23 3.9375C23.3125 4.0625 23.5833 4.25 23.8125 4.5L25.5313 6.25C25.7813 6.47917 25.9635 6.75 26.0781 7.0625C26.1927 7.375 26.25 7.6875 26.25 8C26.25 8.33333 26.1927 8.65104 26.0781 8.95312C25.9635 9.25521 25.7813 9.53125 25.5313 9.78125L9.0625 26.25H3.75ZM19.3438 10.6562L18.4688 9.75L20.25 11.5312L19.3438 10.6562Z"
+                                                    fill="white" />
+                                            </g>
+                                        </svg>
+                                        Edit</label>
+                                    <input type="file" id="uploadInput1" accept="image/*"
+                                        onchange="handleImageChange1()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="footer_cls">
+        <div class="container">
+            <footer class="row row-cols-5 py-5">
+                <div class="col-md-5">
+                    <a class="bottom-top" href="#home_banner"><img
+                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/top-arrow.png"
+                            alt="" />
+                    </a>
+                    <a href="/" class="d-flex align-items-center link-dark text-decoration-none">
+                        <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png" />
+                    </a>
+                    <p>Designed by UpscAle</p>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Home</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Learning</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Courses</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Sessions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Community</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Help Center</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/owl.carousel.js"></script>
+    <script>
+        document
+            .querySelector("[data-automation-id='contentScrollRegion']")
+            .addEventListener("scroll", (event) => {
+                if (
+                    document.querySelector("[data-automation-id='contentScrollRegion']")
+                        .scrollTop > 30
+                ) {
+                    $("nav").addClass("newclass");
+                } else {
+                    $("nav").removeClass("newclass");
+                }
+            });
+    </script>
+
+
+    <script>
+
+        function showTab(tabId) {
+            // Hide all tabs and tab contents
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Show the selected tab and tab content
+            const selectedTab = document.getElementById(tabId);
+            const selectedTabContent = document.getElementById(tabId);
+
+            if (selectedTab && selectedTabContent) {
+                selectedTab.classList.add('active');
+                selectedTabContent.classList.add('active');
+            }
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('li.tab').click(function () {
+                // Remove the 'selected' class from all siblings
+                $(this).siblings().removeClass('active');
+
+                // Add the 'selected' class to the clicked li
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+    <script>
+        function deleteItem() {
+            const itemsContainer = document.getElementById('itemsContainer');
+            const checkboxes = document.querySelectorAll('.form-check-input:checked');
+            checkboxes.forEach(checkbox => {
+                const itemDiv = checkbox.closest('.item');
+                itemsContainer.removeChild(itemDiv);
+            });
+        }
+    </script>
+
+
+
+
+    <script>
+        function handleImageChange() {
+            const uploadInput = document.getElementById('uploadInput');
+            const profileImage = document.getElementById('profileImage');
+
+            const file = uploadInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profileImage.innerHTML = '<img src="' + e.target.result + '" alt="Profile Picture">';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <script>
+        function handleImageChange1() {
+            const uploadInput = document.getElementById('uploadInput1');
+            const profileImage = document.getElementById('profileImage1');
+
+            const file = uploadInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profileImage.innerHTML = '<img src="' + e.target.result + '" alt="Profile Picture">';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <!-------dynamic cards start here--------->
+    <script>
+         $(document).ready(function () {
+            var urlParams = new URLSearchParams(window.location.search);
+ 
+            // Get the values of the query parameters
+            var param1 = urlParams.get('param1');
+            if(!param1){
+                console.log('default course edit')
+            }
+            if(param1==='testimonial'){
+                // Get the button element by its ID
+            var button = document.getElementById('nav-profile-tab');
+
+            // Trigger a click event on the button
+            button.click();
+            }
+        })
+
+    </script>
+
+
+
+    <script>
+
+        console.log("dynamic script is loaded");
+        document.addEventListener("DOMContentLoaded", fetchDynamicContent);
+
+        var uniqueArray=[];
+        async function fetchDynamicContent() {
+            try {
+                let apiEndpoint =
+                    "https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/_api/web/lists/getbytitle('Video_Overview')/items?$orderby=ID asc";
+                //?$filter=Category eq 'home_section3'
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    //var items =data.d.results;
+                    // console.log("data of dynamicCourse ", data);
+                    if (data.d.results) {
+                        renderDynamicContent(data.d.results);
+                    }
+                    else {
+
+                    }
+                    console.log("dynamic data is", data.d.results);
+                } else {
+                    throw new Error("Error fetching Dynamic_Contents data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function renderDynamicContent(contents) {
+            //console.log("Contents length is:", contents);
+
+            var user_data = "";
+            for (let i = 0; i < contents.length; i++) {
+                if(!uniqueArray.includes(contents[i].module_id)){
+                    user_data += ` <div class="col-md-3 mb-4">
+                            <div class="card">
+                              <div class="card-img">
+                                <img src="${contents[i].content_img}" class="img-fluid">
+                                
+                                <div id="rollingIcon266" class="rolling"></div>
+                              </span>
+                              </div>
+                              <div class="card-img-overlay">
+                                <h4>${contents[i].Title}</h4>
+                                <p>${contents[i].description_content}</p>
+                                <p><span>by ${contents[i].tutor || "tutor"}</span></p>
+
+                                <div class="btn_cls" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  <button onclick='getCourseDetail(${contents[i].ID})' disabled>
+                                    Edit/ Modify
+                                  </button>
+                                 
+                                </div>
+                                <span class="delete-icon" onclick='deleteCourse(${contents[i].ID});'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <mask id="mask0_1464_713" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="20" height="20">
+                                            <rect width="20" height="20" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_1464_713)">
+                                            <path
+                                                d="M5.83301 17.5C5.37467 17.5 4.98231 17.3368 4.65592 17.0104C4.32954 16.684 4.16634 16.2917 4.16634 15.8333V5H3.33301V3.33333H7.49967V2.5H12.4997V3.33333H16.6663V5H15.833V15.8333C15.833 16.2917 15.6698 16.684 15.3434 17.0104C15.017 17.3368 14.6247 17.5 14.1663 17.5H5.83301ZM14.1663 5H5.83301V15.8333H14.1663V5ZM7.49967 14.1667H9.16634V6.66667H7.49967V14.1667ZM10.833 14.1667H12.4997V6.66667H10.833V14.1667Z"
+                                                fill="#E56A63" />
+                                        </g>
+                                    </svg>
+                                </span>
+                              </div>
+                            </div>
+                            </div>
+                        `;
+                        uniqueArray.push(contents[i].module_id)
+                }
+                // const activeindex = i === 0 ? "active" : "";
+
+              
+            }
+            $("#dynamicCourseCardAll").html(`<div class="col-md-3 mb-4">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div></div>
+                                        <div>
+                                            <h5 class="card-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="94" height="94"
+                                                    viewBox="0 0 94 94" fill="none">
+                                                    <path
+                                                        d="M19.0936 33.7813H24.9686C25.3581 33.7813 25.7317 33.6265 26.0072 33.3511C26.2826 33.0756 26.4373 32.702 26.4373 32.3125V28.8903C26.4409 27.9762 26.16 27.0837 25.6337 26.3363C25.1074 25.5889 24.3617 25.0238 23.4998 24.7191V22.1047L30.3148 24.3813L27.9942 31.3578C27.9278 31.5585 27.9054 31.7712 27.9287 31.9813C27.9519 32.1914 28.0203 32.394 28.129 32.5753C28.2378 32.7566 28.3844 32.9122 28.5589 33.0317C28.7333 33.1511 28.9315 33.2314 29.1398 33.2672L46.7649 36.2047H47.2495L64.8745 33.2672C65.0829 33.2314 65.2811 33.1511 65.4555 33.0317C65.63 32.9122 65.7766 32.7566 65.8853 32.5753C65.9941 32.394 66.0625 32.1914 66.0857 31.9813C66.109 31.7712 66.0866 31.5585 66.0202 31.3578L63.6849 24.3813L75.4348 20.4891C75.7179 20.3942 75.9653 20.2154 76.1442 19.9764C76.323 19.7374 76.4248 19.4496 76.436 19.1513C76.4472 18.853 76.3672 18.5584 76.2067 18.3067C76.0462 18.055 75.8128 17.8582 75.5377 17.7425L47.6314 5.9925C47.4502 5.91575 47.2554 5.8762 47.0586 5.8762C46.8618 5.8762 46.667 5.91575 46.4858 5.9925L18.5795 17.7425C18.3044 17.8582 18.071 18.055 17.9105 18.3067C17.75 18.5584 17.67 18.853 17.6812 19.1513C17.6924 19.4496 17.7942 19.7374 17.973 19.9764C18.1519 20.2154 18.3993 20.3942 18.6823 20.4891L20.6211 21.1353V24.7191C19.7593 25.0238 19.0136 25.5889 18.4872 26.3363C17.9609 27.0837 17.6801 27.9762 17.6836 28.8903V32.3125C17.6833 32.6921 17.8299 33.057 18.0928 33.3308C18.3557 33.6047 18.7143 33.7661 19.0936 33.7813ZM46.9999 33.2672L31.3136 30.6528L33.5755 23.8525C34.5742 23.0447 38.7895 20.0778 46.9999 20.0778C55.2102 20.0778 59.4255 23.0153 60.4242 23.8525L62.6861 30.6528L46.9999 33.2672ZM46.9999 8.94469L70.7348 18.9469L62.6861 21.6347C62.6087 21.6718 62.535 21.7161 62.4658 21.7669C61.3642 20.7975 56.5908 17.155 46.9999 17.155C37.4089 17.155 32.6355 20.7975 31.5339 21.7669C31.4642 21.7211 31.3904 21.6818 31.3136 21.6494L23.2648 18.9616L46.9999 8.94469ZM20.5623 28.905C20.5443 28.7076 20.5699 28.5087 20.6373 28.3223C20.7047 28.1358 20.8123 27.9666 20.9525 27.8264C21.0927 27.6862 21.2619 27.5786 21.4483 27.5112C21.6348 27.4438 21.8337 27.4182 22.0311 27.4363C22.2285 27.4182 22.4274 27.4438 22.6138 27.5112C22.8003 27.5786 22.9695 27.6862 23.1097 27.8264C23.2499 27.9666 23.3575 28.1358 23.4249 28.3223C23.4923 28.5087 23.5179 28.7076 23.4998 28.905V30.8438H20.5623V28.905Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M77.7409 43.9891V42.0209C77.7392 41.5081 77.6349 41.0007 77.4342 40.5287C77.2336 40.0567 76.9406 39.6296 76.5725 39.2725C76.2044 38.9153 75.7686 38.6353 75.2908 38.449C74.813 38.2627 74.3027 38.1738 73.79 38.1875C64.596 38.2956 55.5057 40.1445 47 43.6366C38.4943 40.1445 29.404 38.2956 20.21 38.1875C19.6951 38.1669 19.1815 38.2529 18.7013 38.4399C18.2211 38.6269 17.7847 38.911 17.4194 39.2744C17.051 39.6304 16.7583 40.0573 16.5589 40.5292C16.3595 41.0012 16.2575 41.5086 16.2591 42.0209V43.9891C14.9725 44.3125 13.8305 45.0558 13.0138 46.1013C12.1972 47.1467 11.7524 48.4346 11.75 49.7612V81.2806C11.75 82.866 12.3798 84.3865 13.5009 85.5076C14.6219 86.6286 16.1424 87.2584 17.7278 87.2584H76.2722C77.8576 87.2584 79.3781 86.6286 80.4991 85.5076C81.6202 84.3865 82.25 82.866 82.25 81.2806V49.7612C82.2476 48.4346 81.8028 47.1467 80.9862 46.1013C80.1695 45.0558 79.0275 44.3125 77.7409 43.9891ZM73.8634 41.125C73.9856 41.1232 74.1069 41.1457 74.2203 41.1911C74.3338 41.2365 74.4371 41.3039 74.5244 41.3894C74.6128 41.4721 74.6832 41.5722 74.7312 41.6834C74.7792 41.7946 74.8038 41.9145 74.8034 42.0356V77.8437C74.8036 78.0764 74.7132 78.2999 74.5515 78.4671C74.3898 78.6343 74.1694 78.7321 73.9369 78.7397C65.2337 78.8694 56.618 80.4991 48.4688 83.5572V46.2069C56.5549 42.9853 65.1602 41.2632 73.8634 41.125ZM19.1819 42.0209C19.1815 41.8998 19.2061 41.7799 19.2541 41.6687C19.3021 41.5575 19.3725 41.4574 19.4609 41.3747C19.546 41.2903 19.6468 41.2235 19.7577 41.1781C19.8686 41.1327 19.9874 41.1097 20.1072 41.1103C28.8212 41.2497 37.4368 42.9768 45.5312 46.2069V83.5572C37.3782 80.4924 28.7574 78.8577 20.0484 78.725C19.8159 78.7174 19.5955 78.6196 19.4338 78.4524C19.2721 78.2852 19.1818 78.0617 19.1819 77.8291V42.0209ZM14.6875 81.2806V49.7612C14.6892 49.2203 14.8359 48.6898 15.1123 48.2248C15.3887 47.7598 15.7847 47.3775 16.2591 47.1175V77.8437C16.2549 78.8401 16.6419 79.7983 17.3368 80.5124C18.0316 81.2265 18.9789 81.6394 19.975 81.6625C26.2033 81.8101 32.3916 82.7026 38.4078 84.3209H17.7278C16.9215 84.3209 16.1482 84.0006 15.578 83.4304C15.0078 82.8603 14.6875 82.087 14.6875 81.2806ZM79.3125 81.2806C79.3125 82.087 78.9922 82.8603 78.422 83.4304C77.8518 84.0006 77.0785 84.3209 76.2722 84.3209H55.5628C61.5885 82.7001 67.7868 81.8076 74.025 81.6625C75.0211 81.6394 75.9684 81.2265 76.6632 80.5124C77.3581 79.7983 77.745 78.8401 77.7409 77.8437V47.1175C78.2153 47.3775 78.6113 47.7598 78.8877 48.2248C79.1641 48.6898 79.3108 49.2203 79.3125 49.7612V81.2806Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M23.2502 47.8812C24.719 47.9841 26.1877 48.1163 27.6565 48.2925H27.9062C28.2957 48.3159 28.6786 48.1835 28.9706 47.9246C29.2625 47.6657 29.4397 47.3014 29.4631 46.9119C29.4864 46.5223 29.3541 46.1395 29.0952 45.8475C28.8363 45.5555 28.472 45.3784 28.0824 45.355C26.6137 45.1641 25.0127 45.0319 23.4999 44.9291C23.1104 44.9037 22.7268 45.0342 22.4334 45.2917C22.1401 45.5493 21.961 45.9128 21.9357 46.3023C21.9104 46.6919 22.0409 47.0755 22.2984 47.3689C22.5559 47.6622 22.9195 47.8412 23.309 47.8666L23.2502 47.8812Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M21.8842 50.9656C21.86 51.3529 21.9901 51.7341 22.246 52.0258C22.502 52.3175 22.863 52.4961 23.2501 52.5225C25.9867 52.7016 28.7123 53.0203 31.4164 53.4772H31.6661C32.0556 53.5103 32.4424 53.3873 32.7412 53.1353C33.0401 52.8832 33.2266 52.5228 33.2597 52.1333C33.2928 51.7437 33.1698 51.357 32.9178 51.0581C32.6657 50.7593 32.3053 50.5728 31.9158 50.5397C29.1282 50.0841 26.3192 49.7703 23.4998 49.5997C23.3034 49.5795 23.1048 49.5992 22.9161 49.6575C22.7274 49.7158 22.5524 49.8116 22.4016 49.9392C22.2508 50.0667 22.1272 50.2233 22.0383 50.3997C21.9494 50.576 21.897 50.7685 21.8842 50.9656Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M21.8842 58.8528C21.86 59.2401 21.9901 59.6213 22.246 59.913C22.502 60.2047 22.863 60.3833 23.2501 60.4097C29.2323 60.7853 35.1488 61.87 40.8751 63.6409C41.0212 63.6631 41.1697 63.6631 41.3158 63.6409C41.7053 63.6994 42.1021 63.6007 42.4189 63.3665C42.7356 63.1324 42.9464 62.782 43.0048 62.3925C43.0633 62.003 42.9646 61.6062 42.7304 61.2894C42.4963 60.9726 42.1459 60.7619 41.7564 60.7034C35.8189 58.9153 29.6909 57.8356 23.4998 57.4869C23.3034 57.4667 23.1048 57.4864 22.9161 57.5447C22.7274 57.603 22.5524 57.6988 22.4016 57.8263C22.2508 57.9539 22.1272 58.1105 22.0383 58.2869C21.9494 58.4632 21.897 58.6557 21.8842 58.8528Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M41.8006 66.3287C35.8549 64.4877 29.7117 63.3587 23.4999 62.9653C23.3071 62.9528 23.1136 62.9784 22.9306 63.0406C22.7476 63.1028 22.5787 63.2005 22.4334 63.328C22.2882 63.4555 22.1694 63.6104 22.0841 63.7838C21.9987 63.9572 21.9483 64.1457 21.9357 64.3386C21.9232 64.5315 21.9488 64.7249 22.011 64.9079C22.0732 65.0909 22.1709 65.2599 22.2984 65.4051C22.4259 65.5504 22.5808 65.6691 22.7542 65.7545C22.9276 65.8399 23.1161 65.8903 23.309 65.9028C29.2911 66.2789 35.2075 67.3635 40.934 69.1341C41.08 69.1562 41.2286 69.1562 41.3746 69.1341C41.7642 69.1925 42.161 69.0938 42.4777 68.8597C42.7945 68.6255 43.0053 68.2752 43.0637 67.8856C43.1221 67.4961 43.0234 67.0993 42.7893 66.7825C42.5552 66.4658 42.2048 66.255 41.8152 66.1966L41.8006 66.3287Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M41.8006 71.9688C35.8519 70.1523 29.7088 69.0479 23.4999 68.6788C23.3071 68.6662 23.1136 68.6918 22.9306 68.754C22.7476 68.8162 22.5787 68.9139 22.4334 69.0414C22.1401 69.299 21.961 69.6625 21.9357 70.052C21.9104 70.4416 22.0409 70.8252 22.2984 71.1186C22.5559 71.4119 22.9195 71.5909 23.309 71.6163C29.2912 71.9919 35.2076 73.0766 40.934 74.8475C41.08 74.8697 41.2286 74.8697 41.3746 74.8475C41.7642 74.9059 42.161 74.8072 42.4777 74.5731C42.7945 74.339 43.0053 73.9886 43.0637 73.5991C43.1221 73.2095 43.0234 72.8127 42.7893 72.496C42.5552 72.1792 42.2048 71.9684 41.8152 71.91L41.8006 71.9688Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6255 63.7144C52.7716 63.7365 52.9201 63.7365 53.0662 63.7144C58.7925 61.9433 64.709 60.8586 70.6912 60.4831C70.884 60.4706 71.0726 60.4202 71.246 60.3348C71.4194 60.2494 71.5742 60.1307 71.7018 59.9854C71.8293 59.8402 71.9269 59.6712 71.9892 59.4882C72.0514 59.3052 72.077 59.1118 72.0644 58.9189C72.0519 58.726 72.0015 58.5375 71.9161 58.3641C71.8307 58.1907 71.712 58.0358 71.5668 57.9083C71.4215 57.7808 71.2526 57.6831 71.0696 57.6209C70.8866 57.5587 70.6931 57.5331 70.5002 57.5456C64.2686 57.9338 58.1054 59.0629 52.1408 60.9091C51.7513 60.9675 51.4009 61.1783 51.1668 61.495C50.9327 61.8118 50.834 62.2086 50.8924 62.5981C50.9508 62.9877 51.1616 63.338 51.4784 63.5722C51.7951 63.8063 52.1919 63.905 52.5815 63.8466L52.6255 63.7144Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6255 69.1928C52.7716 69.215 52.9201 69.215 53.0662 69.1928C58.7926 67.4221 64.709 66.3375 70.6912 65.9616C71.0783 65.9352 71.4393 65.7566 71.6953 65.4649C71.9512 65.1732 72.0813 64.792 72.0571 64.4047C72.0535 64.2066 72.0099 64.0114 71.9289 63.8306C71.8478 63.6499 71.7311 63.4874 71.5857 63.3529C71.4402 63.2185 71.2691 63.1148 71.0826 63.0482C70.896 62.9816 70.6979 62.9534 70.5002 62.9653C64.2686 63.3539 58.1055 64.483 52.1408 66.3288C51.7513 66.3872 51.4009 66.598 51.1668 66.9147C50.9327 67.2315 50.834 67.6283 50.8924 68.0178C50.9508 68.4074 51.1616 68.7577 51.4784 68.9918C51.7951 69.226 52.1919 69.3247 52.5815 69.2663L52.6255 69.1928Z"
+                                                        fill="#929292" />
+                                                    <path
+                                                        d="M52.6254 74.9063C52.7715 74.9284 52.92 74.9284 53.066 74.9063C58.7924 73.1352 64.7088 72.0505 70.691 71.675C71.0806 71.6497 71.4441 71.4707 71.7016 71.1773C71.9592 70.884 72.0896 70.5003 72.0643 70.1108C72.039 69.7212 71.86 69.3577 71.5666 69.1002C71.2733 68.8426 70.8896 68.7122 70.5001 68.7375C64.2887 69.0862 58.1406 70.1708 52.1848 71.9688C51.7953 72.0272 51.4449 72.238 51.2108 72.5547C50.9766 72.8715 50.8779 73.2683 50.9364 73.6578C50.9948 74.0474 51.2056 74.3977 51.5223 74.6318C51.8391 74.866 52.2359 74.9647 52.6254 74.9063Z"
+                                                        fill="#929292" />
+                                                </svg>
+                                            </h5>
+                                            <p class="card-text">Click to add a new course</p>
+                                        </div>
+                                        <div class="btn_cls">
+                                            <button>
+                                                Add New
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>${user_data}`);
+
+        }
+        fetchDynamicContent();
+
+
+        var ID;
+        var getCourseDetail = async (id) => {
+            ID = id;
+            console.log("getcourse details called");
+            try {
+                let apiEndpoint =
+                    `https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/_api/web/lists/getbytitle('Video_Overview')/items?$filter= (ID eq ${id})`;
+                //?$filter=Category eq 'home_section3'
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    //var items =data.d.results;
+                    // console.log("data of dynamicCourse ", data);
+                    if (data.d.results && data.d.results.length > 0) {
+                        console.log("data is: ", data.d.results);
+                        for (let i = 0; i < data.d.results.length; i++) {
+                            const course = data.d.results[i];
+
+                            $("#courseTitle").val(course.Title);
+                            $("#courseDescription").val(course.description);
+                            $("#uploadImg").attr("src", course.image);
+                            $("#courseDuration").val(course.duration);
+                        }
+                    }
+
+                } else {
+                    throw new Error("Error fetching Dynamic_Contents data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        var save = document.getElementById('savebtn');
+
+
+        save.addEventListener('click', function () {
+            var courseTitle = document.getElementById('courseTitle').value;
+            var courseDescription = document.getElementById('courseDescription').value;
+            var courseDuration = document.getElementById('courseDuration').value;
+
+            var element = document.getElementById("uploadInput");
+            var selectedFile = element.files[0];
+            if (selectedFile) {
+                const fileName1 = selectedFile.name;
+                const sessionImage = _spPageContextInfo.webAbsoluteUrl + "/Shared Documents/" + fileName1;
+
+                readsessionFile(ID, courseTitle, courseDescription, courseDuration,sessionImage)
+            }
+            UpdateListItem(ID, courseTitle, courseDescription, courseDuration,null)
+        });
+
+
+
+
+        function UpdateListItem(id, courseTitle, courseDescription, courseDuration,sessionImage) {
+            // Display values (for debugging purposes)
+            console.log("ID s", id);
+            console.log('course Name:', courseTitle);
+            console.log("description", courseDescription);
+            console.log("duration", courseDuration);
+
+            var clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+            var oList = clientContext.get_web().get_lists().getByTitle('course_home');
+            var oListItem = oList.getItemById(id);
+
+            // Set properties of the list item
+            oListItem.set_item("Title", courseTitle);
+            oListItem.set_item("duration", courseDuration);
+            oListItem.set_item("description", courseDescription);
+            if(sessionImage){
+                oListItem.set_item("image", sessionImage);
+            }
+
+
+
+            oListItem.update();
+
+            clientContext.executeQueryAsync(
+                function () {
+                    console.log("Item updated successfully.");
+
+
+                    Swal.fire({
+                        title: "updated successfully!",
+                        icon: "success"
+                    }).then(() => {
+                        $('#exampleModal').modal('hide')
+                    });
+                },
+                function (sender, args) {
+                    console.log("Error updating item: " + args.get_message());
+                }
+            );
+        }
+
+        var deleteCourse=async(id)=>{
+            try {
+                var clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+                var oList = clientContext.get_web().get_lists().getByTitle('Video_Overview');
+
+                var oListItem = oList.getItemById(id);
+                Swal.fire({
+                    title: "Delete Course",
+                    icon: "info",
+                    showCancelButton: true,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                    // This code will be executed after the user interacts with the Swal dialog
+                    oListItem.deleteObject();
+                    
+                    clientContext.executeQueryAsync(Function.createDelegate(this, onQuerySucceeded8), Function.createDelegate(this, onQueryFailed8));
+                        }else if (result.isDismissed) {
+                                // This code will be executed if the user clicks "Cancel" or outside the Swal dialog
+                                console.log("Deletion canceled");
+                                // You can add additional actions or remove this block if not needed
+                            }
+                    })
+                        function onQuerySucceeded8() {
+                        console.log('Item deleted ');
+                        fetchDynamicContent()
+                        }
+                        
+                        function onQueryFailed8(sender, args) {
+                            console.log('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+                        }
+            } catch (error) {
+                console.log('error for deletion is',error)
+            }
+        }
+
+    </script>
+
+    <script>
+
+        function readsessionFile(ID, courseTitle, courseDescription, courseDuration,sessionImage) {
+
+            var element = document.getElementById("uploadInput");
+            var file = element.files[0];
+
+            var parts = element.value.split("\\");
+            var fileName = parts[parts.length - 1];
+            console.log("filename is", fileName);
+            //Read File contents using file reader  
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                uploadFile(e.target.result, fileName,ID, courseTitle, courseDescription, courseDuration,sessionImage);
+            }
+            reader.onerror = function (e) {
+                alert(e.target.error);
+            }
+            reader.readAsArrayBuffer(file);
+        }
+
+        function uploadFile(arrayBuffer, fileName,ID, courseTitle, courseDescription, courseDuration,sessionImage) {
+            //Get Client Context,Web and List object.  
+            var clientContext = new SP.ClientContext();
+            var oWeb = clientContext.get_web();
+            var oList = oWeb.get_lists().getByTitle('Documents');
+
+            //Convert the file contents into base64 data  
+            var bytes = new Uint8Array(arrayBuffer);
+            var i, length, out = '';
+            for (i = 0, length = bytes.length; i < length; i += 1) {
+                out += String.fromCharCode(bytes[i]);
+            }
+            var base64 = btoa(out);
+            //Create FileCreationInformation object using the read file data  
+            var createInfo = new SP.FileCreationInformation();
+            createInfo.set_content(base64);
+            createInfo.set_url(fileName);
+
+
+            //Add the file to the library  
+            var uploadedDocument = oList.get_rootFolder().get_files().add(createInfo)
+            // Get the list item associated with the file.
+            var listItem = uploadedDocument.get_listItemAllFields();
+
+
+
+            //Load client context and execcute the batch  
+            clientContext.load(uploadedDocument);
+            clientContext.executeQueryAsync(function () {
+                console.log('File Uploaded Successfully.');
+
+                UpdateListItem(ID, courseTitle, courseDescription, courseDuration,sessionImage)
+
+                // var modal1 = document.getElementById("addexpertModal");
+                // modal1.style.display = "none";
+            }, QueryFailure);
+            function QueryFailure(sender, args) {
+                console.log('Request failed with error message - ' + args.get_message() + ' . Stack Trace - ' + args.get_stackTrace());
+                UpdateListItem(ID, courseTitle, courseDescription, courseDuration,sessionImage)
+
+                // expertImage=_spPageContextInfo.webAbsoluteUrl + "/Shared Documents/default-expert.png"
+                // alert("Request failed with error message - " + args.get_message() + " . Stack Trace - " + args.get_stackTrace());
+                //createSessionItem()
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
