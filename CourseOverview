@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/style.css" rel="stylesheet" />
+    <link href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/css/owl.carousel.css"
+        rel="stylesheet" />
+
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js"></script>
+
+    <script src="_layouts/15/sp.runtime.js" type="text/javascript"></script>
+
+    <script src="_layouts/15/sp.js" type="text/javascript"></script>
+</head>
+<style>
+    .tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px 15px;
+
+        margin-right: 5px;
+    }
+
+    .tab.active {
+        background: #1D1C18;
+        box-shadow: -4px 0px 0px 0px #FFC700;
+        margin-left: 4px;
+    }
+
+    .tab-content {
+        display: none;
+        padding: 15px;
+        color: #fff;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    .video_list li {
+        margin-left: 4px !important;
+    }
+
+    .video_list li.tab .video_desscription_part span:first-child {
+        display: flex;
+    }
+
+    .video_list li.tab .video_desscription_part span:first-child span:first-child {
+        margin-right: 0;
+    }
+
+    .video_list li.active {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .buttonSubmit,
+    button {
+        background: #FFC700;
+        font-weight: 600;
+        border-radius: 7px;
+        float: right;
+        display: flex;
+        width: 130px;
+        height: 41px;
+        padding: 10px 15px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .correct {
+        color: green;
+    }
+
+    .incorrect {
+        color: red;
+    }
+
+    .feedback {
+        background: transparent;
+        border-radius: 10px;
+        height: 41px;
+    }
+
+    .step {
+        display: none;
+    }
+
+    .step.active {
+        display: block;
+    }
+
+    .video_list {
+        padding-top: 25px;
+        overflow: auto;
+        max-height: 507px;
+    }
+
+    .video_list p+span {
+        padding-left: 4vw;
+        line-height: normal;
+    }
+
+    .video_list li.tab .video_desscription_part {
+        flex-direction: column;
+    }
+
+    .video_list li.tab .video_desscription_part span.timing {
+        text-indent: 50px;
+    }
+</style>
+
+<body>
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        var moduleId = urlParams.get('module');
+    </script>
+    <section class="banner_top course_over" id="home_banner">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Home.aspx">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/Course_learning.aspx">Learning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/SitePages/community-page.aspx">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help Center</a>
+                        </li>
+                    </ul>
+
+                    <div class="right_nav">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">
+                                <img
+                                    src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Search-icon.png" />
+                            </button>
+                        </form>
+                        <ul class="drop_item">
+                            <li>
+                                <img
+                                    src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/Bell.png" />
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container banner_text course_view">
+            <div class="row">
+                <div class="col-md-8" id="tabContentId">
+                    <!-- <div class="tab-content active tabu tabu1" id="tab1">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                  Welcome to P&L Introduction training !  
+                                  The objective of this training is to understand the P&L and know where you can have an impact. 
+                                  But first, let’s have a look at the Finance department and the roles & responsibilities of each department.   
+                                </p>    
+                            </div>
+                            <div class="bottom_next">
+                                <span class="slide_move">
+                                    <span onclick="" style="cursor: not-allowed;"> Previous </span>
+                                    <span onclick="nextTab(1)" class="move_next">Next</span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu2" id="tab2" >
+                        <video id="myVideo" width="640" height="360" style="width: 100%; height: auto;" controls >
+                            <source
+                                src="https://anheuserbuschinbev.sharepoint.com/:v:/r/sites/Sales-EUR/Shared%20Documents/reading_material/Roles%20and%20Responsibilities%20-%20V1%20-%20Compressed.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="bottom_next">
+                            <span class="slide_move">
+                                <span onclick="prevTab(2)"> Previous </span>
+                                
+                                <span onclick="nextTab(2)" class="move_next">Next</span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu3" id="tab3">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                  In this section, you will learn to:  
+                                  <ul>
+                                    <li>1. Understand the P&L definition and structure </li>
+                                    <li>2. Learn about the different components of the P&L </li>
+                                    <li>3. Get to know the main commercial KPIs, their importance and drivers</li>
+                                  </ul>  
+                                  P&L = Financial Statement that measures company’s performance over a specific accounting period  
+                                  Before going into this training, let’s train your knowledge !    
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content active tabu tabu1" id="tab1">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                  Welcome to P&L Introduction training !  
+                                  The objective of this training is to understand the P&L and know where you can have an impact. 
+                                  But first, let’s have a look at the Finance department and the roles & responsibilities of each department.   
+                                </p>  
+                                
+                            </div>
+                            <div class="bottom_next">
+                                <span class="slide_move">
+                                    <span onclick="" style="cursor: not-allowed;"> Previous </span>
+                                    <span onclick="nextTab(1)" class="move_next">Next</span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu2" id="tab2" >
+                        <video id="myVideo" width="640" height="360" style="width: 100%; height: auto;" controls >
+                            <source
+                                src="https://anheuserbuschinbev.sharepoint.com/:v:/r/sites/Sales-EUR/Shared%20Documents/reading_material/Roles%20and%20Responsibilities%20-%20V1%20-%20Compressed.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="bottom_next">
+                            <span class="slide_move">
+                                <span onclick="prevTab(2)"> Previous </span>
+                                
+                                <span onclick="nextTab(2)" class="move_next">Next</span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu3" id="tab3">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                  In this section, you will learn to:  
+                                  <ul>
+                                    <li>1. Understand the P&L definition and structure </li>
+                                    <li>2. Learn about the different components of the P&L </li>
+                                    <li>3. Get to know the main commercial KPIs, their importance and drivers</li>
+                                  </ul>  
+                                  P&L = Financial Statement that measures company’s performance over a specific accounting period  
+                                  Before going into this training, let’s train your knowledge !    
+                                </p>  
+                            </div>
+                            <div class="bottom_next">
+                              <span class="slide_move">
+                                <span onclick="prevTab(3)"> Previous </span>
+                                  <span onclick="nextTab(3)" class="move_next">Next</span>
+                                  </span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu4" id="tab4">
+                        <div class="quize">
+                            <h4>Interactive Quiz</h4>
+                            <div class="quize_qution step step1 active" id="">
+                                <p>1. Can you rank the elements of the P&L in the correct order ?   </p>
+                                <form id="myForm">
+                                  <label>
+                                  <input type="radio" name="options" value="option1"> Option 1
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option2"> Option 2
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option3"> Option 3
+                                  </label>
+                                  <br>
+                                  <label>
+                                    <input type="radio" name="options" value="option4"> Option 4
+                                    </label>
+                                    <br>
+                                  <input type="submit" value="Submit" id="submitButton" disabled>
+                                   <button id="next_id" onclick="nextStep(event, 1)">Next question</button>
+                                  </form>
+                            </div>
+                            <div class="quize_qution step step2" id="">
+                                <p>2. What is the right definition of MACO ?  </p>
+                                <form id="myForm1">
+                                  <label>
+                                  <input type="radio" name="options" value="option5"> Option 1
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option6"> Option 2
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option7"> Option 3
+                                  </label>
+                                  <br>
+                                  <label>
+                                    <input type="radio" name="options" value="option8"> Option 4
+                                    </label>
+                                    <br>
+                                  <input type="submit" value="Submit" id="submitButton" disabled>
+                                   <button id="next_id" onclick="nextStep(event, 2)">Next question</button>
+                                  </form>
+                            </div>
+                            <div class="quize_qution step step3" id="">
+                                <p>3. What is included in EBITDA?  </p>
+                                <form id="myForm2">
+                                  <label>
+                                  <input type="radio" name="options" value="option9"> Option 1
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option10"> Option 2
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option11"> Option 3
+                                  </label>
+                                  <br>
+                                  <label>
+                                    <input type="radio" name="options" value="option12"> Option 4
+                                    </label>
+                                    <br>
+                                  <input type="submit" value="Submit" id="submitButton" disabled>
+                                   <button id="next_id" onclick="nextStep(event, 3)">Next question</button>
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="bottom_next">
+                            <span class="slide_move">
+                                <span onclick="prevTab(4)"> Previous </span>
+                                
+                                <span class="move_next" onclick="nextTab(4)">Next</span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu5" id="tab5">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                Indeed,  
+                                This is what the P&L looks like:  
+                                </p>
+                                <img src="https://anheuserbuschinbev.sharepoint.com/:i:/r/sites/Sales-EUR/Shared%20Documents/reading_material/PNL_image.png?csf=1&web=1&e=cuLWyS" alt="">
+                            </div>
+                            <div class="bottom_next">
+                                <span class="slide_move">
+
+                                    <span onclick="prevTab(5)"> Previous </span>
+                                    
+                                    <span onclick="nextTab(5)" class="move_next">Next</span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu6" id="tab6">
+                        <video id="myVideo" width="640" height="360" controls style="width: 100%;height: auto;">
+                            <source
+                                src="https://anheuserbuschinbev.sharepoint.com/:v:/r/sites/Sales-EUR/Shared%20Documents/reading_material/Dissect%20P%26L%20line%20-%20V2%20-%20Compressed.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="bottom_next">
+                            <span class="slide_move">
+                                <span onclick="prevTab(6)"> Previous </span>
+                            
+                                <span class="move_next" onclick="nextTab(6)">Next</span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu7" id="tab7">
+                    <video id="myVideo" width="640" height="360" controls style="width: 100%;height: auto;">
+                        <source
+                            src="https://anheuserbuschinbev.sharepoint.com/:v:/r/sites/Sales-EUR/Shared%20Documents/reading_material/Fixed%20costs%20-%20V3%20-%20Compressed.mp4"
+                            type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="bottom_next">
+                        <span class="slide_move">
+                            <span onclick="prevTab(7)"> Previous </span>
+                            
+                            <span class="move_next" onclick="nextTab(7)">Next</span>
+                            </span>
+                    </div>
+                    </div>
+                    <div class="tab-content tabu tabu8" id="tab8">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                <strong>TO SUMMARIZE:</strong>  
+                                Breakdown P&L - Net Revenue ("Top Line"). 
+                                Net Revenue is the result of the amount our customers are willing to pay for our products. Continuous growth is key to the company's sustainability. Below are the factors that can have a positive or negative impact on revenue growth. 
+                                
+                                What are the different influences on the P&L ? 
+                                
+                                <strong>Positive influences on sales:</strong>
+
+                                - Volume 
+                                - RATE = Rate improvement 
+                                <ul>
+                                    <li>Price increase</li>
+                                    <li>Reduce discounts</li>
+                                    <li>Play fewer/ more efficient promotions</li>
+                                </ul>
+                                - MIX = Mix improvement 
+                                <ul>
+                                    <li>Brand mix</li>
+                                    <li>Packaging mix</li>
+                                    <li>Channel mix</li>
+                                    <li>Customer mix</li>
+                                </ul> 
+                                
+                                <strong>Negative influences on sales</strong>
+                                
+                                - RATE = Rate reduction: 
+                                <ul>
+                                    <li>Increase in promos</li>
+                                    <li>Changes in contract terms - higher discounts</li>
+                                </ul>
+
+                                - MIX: worse than expected 
+                                
+                                P&L breakdown - Variable Industrial Costs (VIC). 
+                                The quality of our products and safety are non-negotiable. We will expand our performance/efficiency
+                                and negotiations with suppliers to improve our performance and add value for our customers and
+                                shareholders. VIC consists of packaging (55%); raw materials (24%); direct labour (9%); other (e.g. 
+                                consumables and supplies - 13%). Factors such as inflation/resource escalation and currency devaluation 
+                                can drive up VIC. The product mix (bottle vs barrel) should also be taken into account when looking at production 
+                                costs (e.g. glass is a fairly expensive raw material, which reduces the profitability of bottles).                                 
+                                </p>
+                            
+                            </div>
+                            <div class="bottom_next">
+                                <span class="slide_move">
+                                    
+                                    <span onclick="prevTab(8)"> Previous </span>
+                                
+                                    <span class="move_next" onclick="nextTab(8)">Next</span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu9" id="tab9">
+                        <div class="quize">
+                            <h4>Interactive Quiz</h4>
+                            <div class="quize_qution step step1 active" id="">
+                                <p>1. Rank from lowest to highest VIC per HL.  </p>
+                                <form id="myForm">
+                                  <label>
+                                  <input type="radio" name="options" value="option1"> Option 1
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option2"> Option 2
+                                  </label>
+                                  <br>
+                                  <label>
+                                  <input type="radio" name="options" value="option3"> Option 3
+                                  </label>
+                                  <br>
+                                  <label>
+                                    <input type="radio" name="options" value="option4"> Option 4
+                                    </label>
+                                    <br>
+                                  <input type="submit" value="Submit" id="submitButton" disabled>
+                                   <button id="next_id" onclick="nextStep(event, 1)">Next question</button>
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="bottom_next">
+                            <span class="slide_move">
+                                <span onclick="prevTab(4)"> Previous </span>
+                                
+                                <span class="move_next" onclick="nextTab(4)">Next</span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="tab-content tabu tabu10" id="tab10">
+                        <div class="quize">
+                            <h4>Text</h4>
+                            <div class="quize_qution">
+                                <p>
+                                    P&L breakdown - Variable logistics costs (VLC). 
+                                    Customer service is key to maintaining our competitive advantage. We need to sell our products to all customers with 
+                                    the best experience while accurately managing costs. 
+
+                                    The sales mix, depending on variables such as packaging/products (barrels vs bottles), channel (Off Trade vs On Trade) and regional mix 
+                                    (e.g. Arlon vs Brussels), also has a major impact on logistics costs. 
+
+                                    P&L breakdown - Fixed commercial costs 
+                                    Investment in sales and marketing is important to increase the value of our brands and build rapport with our customers. This 
+                                    package includes glasses, POCM, investments in tap equipment, HTS intakes, TV campaigns,... 
+                                    This part of the P&L also falls within ZBB. ZBB, short for Zero Based Budgeting, is not a project, it is a way of life - we are never 
+                                    satisfied, but always focused on spending our investments as efficiently as possible. 
+
+                                    P&L breakdown - Fixed non-commercial costs 
+                                    These costs are also part of ZBB. 
+                                    This package consists of personnel costs, company cars, depreciation of buildings, heating costs, IT,... 
+                                </p>
+                            </div>
+                            <div class="bottom_next">
+                                <span class="slide_move">
+                                    
+                                    <span onclick="prevTab(10)"> Previous </span>
+                                
+                                    <span class="move_next" onclick="nextTab(10)">Next</span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-md-4">
+                    <div class="video_content">
+                        <div class="welcome_course">
+                            <h4 id="course_name_id">P&L INTRODUCTION</h4>
+                        </div>
+                        <div class="video_list">
+                            <ul class="tabs" id="dynmContents">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="marketing_for_growth">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="fav_cls">Marketing For Growth <svg xmlns="http://www.w3.org/2000/svg" width="25"
+                            height="25" viewBox="0 0 25 25" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.564 5.28845C13.9709 4.85372 11.3087 4.85372 8.71562 5.28845C8.22762 5.37026 7.84003 5.74519 7.74275 6.22813C6.85768 10.6221 6.80938 15.1436 7.60041 19.5555L7.76396 20.4677L11.4345 16.9807C12.1099 16.339 13.1697 16.339 13.8451 16.9807L17.5156 20.4677L17.6792 19.5555C18.4702 15.1436 18.4219 10.6221 17.5368 6.22813C17.4396 5.74519 17.052 5.37026 16.564 5.28845ZM8.46761 3.8091C11.2249 3.34684 14.0547 3.34684 16.812 3.8091C17.9112 3.99338 18.7868 4.83719 19.0073 5.93193C19.9296 10.5108 19.98 15.2226 19.1556 19.8202L18.9342 21.0555C18.7483 22.0924 17.4842 22.5068 16.7205 21.7813L12.812 18.0682C12.7155 17.9765 12.5641 17.9765 12.4676 18.0682L8.55908 21.7813C7.79538 22.5068 6.53134 22.0924 6.34544 21.0555L6.12395 19.8202C5.29964 15.2226 5.34996 10.5108 6.27229 5.93193C6.4928 4.83719 7.3684 3.99338 8.46761 3.8091Z"
+                                fill="black" />
+                        </svg></h3>
+                    <p><span>Course by</span> <strong>Jo Kuhn</strong> </p>
+                    <p style="display: flex;align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"
+                                stroke="#888785" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"
+                                stroke="#888785" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M23 20.9999V18.9999C22.9993 18.1136 22.7044 17.2527 22.1614 16.5522C21.6184 15.8517 20.8581 15.3515 20 15.1299"
+                                stroke="#888785" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M16 3.12988C16.8604 3.35018 17.623 3.85058 18.1676 4.55219C18.7122 5.2538 19.0078 6.11671 19.0078 7.00488C19.0078 7.89305 18.7122 8.75596 18.1676 9.45757C17.623 10.1592 16.8604 10.6596 16 10.8799"
+                                stroke="#888785" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span style="display: inline-block;padding-left: 7px;">Active</span>
+                        <strong>1234</strong>
+                    </p>
+                    <div class="tab_value">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Overview</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                    type="button" role="tab" aria-controls="profile"
+                                    aria-selected="false">Documents</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                    type="button" role="tab" aria-controls="contact"
+                                    aria-selected="false">Feedback</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h4>Course details</h4>
+                                <ul class="course_time">
+                                    <li> <span>2h 29m</span> </li>
+                                    <li> <span>Updated:</span> 7/28/2023 </li>
+                                </ul>
+                                <p>
+                                    Provides you with the latest online learning system and material that help your
+                                    knowledge growing. There are some basic financial terms and concepts we should all
+                                    be familiar with that we will cover across the three sessions. There are some basic
+                                    financial terms and concepts we should all be familiar with that we will cover
+                                    across the three sessions. There are some basic financial terms and concepts we
+                                    should all be familiar with that we will cover across the three sessions
+                                    Provides you with the latest online learning system and material that help your
+                                    knowledge growing. There are some basic financial terms and concepts we should all
+                                    be familiar with that we will cover across the three sessions. There are some basic
+                                    financial terms and concepts we should all be familiar with that we will cover
+                                    across the three sessions. There are some basic financial terms and concepts we
+                                    should all be familiar with that we will cover across the three sessions
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="document_cls">
+                                    <h2>Practice while you learn with exercise files</h2>
+                                    <ul>
+                                        <li>
+                                            <div class="doc_name">
+                                                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z"
+                                                            stroke="#29739C" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path d="M13 2V9H20" stroke="#29739C" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                                <strong>Ex_Files_Building power effective brands.pdf
+                                                    <b>(20.83KB)</b>
+                                                </strong>
+                                            </div>
+                                            <button>Download</button>
+                                        </li>
+                                        <li>
+                                            <div class="doc_name">
+                                                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z"
+                                                            stroke="#29739C" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path d="M13 2V9H20" stroke="#29739C" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                                <strong>Ex_Files_Building power effective brands.pdf
+                                                    <b>(20.83KB)</b>
+                                                </strong>
+                                            </div>
+                                            <button>Download</button>
+                                        </li>
+                                        <li>
+                                            <div class="doc_name">
+                                                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <path
+                                                            d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z"
+                                                            stroke="#29739C" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path d="M13 2V9H20" stroke="#29739C" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                                <strong>Ex_Files_Building power effective brands.pdf
+                                                    <b>(20.83KB)</b>
+                                                </strong>
+                                            </div>
+                                            <button>Download</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                <div class="feedback_form">
+                                    <h2>Feedback</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam
+                                        in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula
+                                        consectetur, ultrices mauris.</p>
+                                    <div class="submit_form">
+                                        <ul>
+                                            <li> <span>Rate the Course</span> </li>
+                                            <li> <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                                    viewBox="0 0 34 34" fill="none">
+                                                    <path
+                                                        d="M16.579 2.76343L20.8481 11.4121L30.3948 12.8075L23.4869 19.5358L25.1171 29.0411L16.579 24.5509L8.04082 29.0411L9.67108 19.5358L2.76318 12.8075L12.3099 11.4121L16.579 2.76343Z"
+                                                        fill="#F4BF04" stroke="#F4BF04" stroke-width="2.07237"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </li>
+                                            <li> <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                                    viewBox="0 0 34 34" fill="none">
+                                                    <path
+                                                        d="M16.579 2.76343L20.8481 11.4121L30.3948 12.8075L23.4869 19.5358L25.1171 29.0411L16.579 24.5509L8.04082 29.0411L9.67108 19.5358L2.76318 12.8075L12.3099 11.4121L16.579 2.76343Z"
+                                                        fill="#F4BF04" stroke="#F4BF04" stroke-width="2.07237"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                                    viewBox="0 0 34 34" fill="none">
+                                                    <path
+                                                        d="M17.0001 2.76367L21.2692 11.4124L30.8159 12.8078L23.908 19.536L25.5383 29.0413L17.0001 24.5512L8.46196 29.0413L10.0922 19.536L3.18433 12.8078L12.731 11.4124L17.0001 2.76367Z"
+                                                        fill="#EDE6CE" stroke="#EDE6CE" stroke-width="2.07237"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                                    viewBox="0 0 34 34" fill="none">
+                                                    <path
+                                                        d="M17.0001 2.76367L21.2692 11.4124L30.8159 12.8078L23.908 19.536L25.5383 29.0413L17.0001 24.5512L8.46196 29.0413L10.0922 19.536L3.18433 12.8078L12.731 11.4124L17.0001 2.76367Z"
+                                                        fill="#EDE6CE" stroke="#EDE6CE" stroke-width="2.07237"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </li>
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                                    viewBox="0 0 34 34" fill="none">
+                                                    <path
+                                                        d="M17.0001 2.76367L21.2692 11.4124L30.8159 12.8078L23.908 19.536L25.5383 29.0413L17.0001 24.5512L8.46196 29.0413L10.0922 19.536L3.18433 12.8078L12.731 11.4124L17.0001 2.76367Z"
+                                                        fill="#EDE6CE" stroke="#EDE6CE" stroke-width="2.07237"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                        <button>Submit</button>
+                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1"></label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                placeholder="Other suggestions..."></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <ul class="feedback_item">
+                                    <li>
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-2 text-center">
+                                                        <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user-icon.png"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h6>Alex Joy</h6>
+                                                        <p>Lorem ipsum dolor sit amet consectetur. Sem sem dignissim sed
+                                                            lectus pulvinar. Donec dui nibh at in massa ullamcorper.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <ul>
+                                                    <li>3/4</li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.30592 1.73438L11.4733 6.12529L16.3202 6.83372L12.813 10.2497L13.6407 15.0755L9.30592 12.7958L4.97113 15.0755L5.7988 10.2497L2.29169 6.83372L7.13852 6.12529L9.30592 1.73438Z"
+                                                                stroke="#0D0D0D" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.30592 1.73438L11.4733 6.12529L16.3202 6.83372L12.813 10.2497L13.6407 15.0755L9.30592 12.7958L4.97113 15.0755L5.7988 10.2497L2.29169 6.83372L7.13852 6.12529L9.30592 1.73438Z"
+                                                                stroke="#0D0D0D" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-2 text-center">
+                                                        <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/user-icon.png"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <h6>Alex Joy</h6>
+                                                        <p>Lorem ipsum dolor sit amet consectetur. Sem sem dignissim sed
+                                                            lectus pulvinar. Donec dui nibh at in massa ullamcorper.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <ul>
+                                                    <li>3/4</li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.42403 1.73438L11.5914 6.12529L16.4383 6.83372L12.9311 10.2497L13.7588 15.0755L9.42403 12.7958L5.08923 15.0755L5.91691 10.2497L2.40979 6.83372L7.25663 6.12529L9.42403 1.73438Z"
+                                                                fill="#FAE715" stroke="#FAE715" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.30592 1.73438L11.4733 6.12529L16.3202 6.83372L12.813 10.2497L13.6407 15.0755L9.30592 12.7958L4.97113 15.0755L5.7988 10.2497L2.29169 6.83372L7.13852 6.12529L9.30592 1.73438Z"
+                                                                stroke="#0D0D0D" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                    <li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17"
+                                                            viewBox="0 0 18 17" fill="none">
+                                                            <path
+                                                                d="M9.30592 1.73438L11.4733 6.12529L16.3202 6.83372L12.813 10.2497L13.6407 15.0755L9.30592 12.7958L4.97113 15.0755L5.7988 10.2497L2.29169 6.83372L7.13852 6.12529L9.30592 1.73438Z"
+                                                                stroke="#0D0D0D" stroke-width="0.918227"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="recommended_course ">
+                        <h3>Recommended Course
+                            <svg xmlns="http://www.w3.org/2000/svg" width="145" height="6" viewBox="0 0 145 6"
+                                fill="none">
+                                <path d="M145 3L2.6226e-06 3" stroke="#FFC700" stroke-width="6" />
+                            </svg>
+                        </h3>
+                        <!-- /* remove id recomm_id */ -->
+                        <ul class="rec_list" id="">
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/finace_eur.png">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="cource_des">
+                                                        <h4>Financial Literacy</h4>
+                                                        <p>Micheal Klein </p>
+                                                    </div>
+                                                    <p><span>1hr 30m </span></p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            viewBox="0 0 30 30" fill="none">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                                                fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer_cls">
+        <div class="container">
+            <footer class="row row-cols-5 py-5">
+                <div class="col-md-5">
+                    <a class="bottom-top" href="#home_banner"><img
+                            src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/top-arrow.png"
+                            alt="" />
+                    </a>
+                    <a href="/" class="d-flex align-items-center link-dark text-decoration-none">
+                        <img src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/images/logo.png" />
+                    </a>
+                    <p>Designed by UpscAle</p>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Home</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Learning</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Courses</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Sessions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Community</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <ul class="nav flex-column">
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">Help Center</a>
+                                </li>
+                                <li class="nav-item mb-2">
+                                    <a href="#" class="nav-link p-0 text-muted">FAQs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/Assets/js/owl.carousel.js"></script>
+
+    <script>
+        document
+            .querySelector("[data-automation-id='contentScrollRegion']")
+            .addEventListener("scroll", (event) => {
+                if (
+                    document.querySelector("[data-automation-id='contentScrollRegion']")
+                        .scrollTop > 30
+                ) {
+                    $("nav").addClass("newclass");
+                } else {
+                    $("nav").removeClass("newclass");
+                }
+            });
+    </script>
+
+
+    <script>
+
+        function showTab(tabId, mianId, contenType) {
+            console.log(mianId);
+            console.log('contenType', contenType);
+            if (contenType == 'Quiz') {
+                fetchDynmQuizzesContent();
+            }
+            $("#" + tabId).addClass('active').siblings().removeClass('active');
+            $("#" + mianId).addClass('active').siblings().removeClass('active');
+        }
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('li.tab').click(function () {
+                // Remove the 'selected' class from all siblings
+                $(this).siblings().removeClass('active');
+
+                // Add the 'selected' class to the clicked li
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+    <script>
+        // Recommended page
+
+        $(document).ready(function () {
+            fetchDynamicContentRecommPage();
+        });
+
+        var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+        async function fetchDynamicContentRecommPage() {
+            try {
+                let categoryFilter = "Recommended Courses";
+                let listName = "course_home";
+                let apiEndpoint = `${siteUrl}/_api/web/lists/getbytitle('${listName}')/items?$filter=category eq '${categoryFilter}'`;
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    // console.log("data top learners new", data);
+                    recommContents(data.d.results)
+                } else {
+                    throw new Error("Error fetching Dynamic_Contents data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+
+        async function recommContents(contents) {
+            let recomm_section = "";
+            contents.forEach((item) => {
+                recomm_section += `
+      <li>
+        <a href="#!">
+            <div class="row">
+                <div class="col-md-4">
+                    <img
+                        src="${item.vertical_thumbnail}">
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="cource_des">
+                                <h4>${item.Title}</h4>
+                                <p>${item.tutor}</p>
+                            </div>
+                            <p><span>${item.duration}</span></p>
+                        </div>
+                        <div class="col-md-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.4621 9.33708C12.8282 8.97097 13.4217 8.97097 13.7879 9.33708L18.7879 14.3371C19.154 14.7032 19.154 15.2967 18.7879 15.6629L13.7879 20.6629C13.4217 21.029 12.8282 21.029 12.4621 20.6629C12.096 20.2967 12.096 19.7032 12.4621 19.3371L16.7991 15L12.4621 10.6629C12.096 10.2968 12.096 9.7032 12.4621 9.33708Z"
+                                        fill="black" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>`
+            })
+            $("#recomm_id").html(recomm_section)
+        }
+    </script>
+
+    <!--Demo page -->
+
+    <script>
+
+        $(document).ready(function () {
+            fetchDynCoursePage();
+            fetchDynmQuizzesContent();
+        });
+
+        var encodedCourseName;
+
+        var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+        async function fetchDynCoursePage() {
+            try {
+                let listName = "Video_Overview";
+                let apiEndpoint = `${siteUrl}/_api/web/lists/getbytitle('${listName}')/items?$filter=module_id eq '${moduleId}'`;
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+
+                if (response.ok) {
+                    let data = await response.json();
+                    dynTabContents(data.d.results);
+
+                } else {
+                    throw new Error("Error fetching Dynamic_Contents data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async function fetchDynmQuizzesContent(indx, modulename) {
+            try {
+                let apiEndpoint =
+                    `https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/_api/web/lists/getbytitle('quizzes_list')/items?$filter=( course_id eq '${moduleId}' and module eq '${modulename}')`;
+                let response = await fetch(apiEndpoint, {
+                    method: "GET",
+                    headers: { Accept: "application/json;odata=verbose" },
+                });
+                // console.log('api endpoint is')
+                if (response.ok) {
+                    let data = await response.json();
+                    let data2 = rendDynmQuizzesContent(data.d.results, indx, modulename);
+                    return data2;
+                } else {
+                    throw new Error("Error fetching fetchDynmQuizzesContent data");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        var buttonStyle = `
+                background: #FFC700;
+                font-weight: 600;
+                border-radius: 7px;
+                float: right;
+                display: flex;
+                width: 130px;
+                height: 41px;
+                padding: 10px 15px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+            `;
+
+        var selectedOption; // Declare selectedOption in the outer scope
+        var tabContentsDynamic = '';
+        var quizContent = '';
+
+        function rendDynmQuizzesContent(items, indexx, moduleName) {
+            try {
+                if (!items || items.length == 0) {
+                    console.error('No quiz content available.');
+                    return;
+                }
+
+                var questLength = items.length;
+                quizContent = "";
+
+                for (let i = 0; i < items.length; i++) {
+                    let course_name = items[i].courseName0;
+                    let module = items[i].module;
+                    console.log('moduleName ', module);
+
+                    let options = items[i].Choices.split(',').map(option => option.trim());
+                    console.log('options: ', options);
+
+                    let correctAnswer = items[i].Ans.split(': ')[1].trim();
+                    correctAnswer = correctAnswer.trim()
+                    console.log('correctAnswer: ', correctAnswer);
+                    const optionLabels = ['A', 'B', 'C', 'D', 'E']; // Add more if needed
+                    const correctAnswerIndex = optionLabels.indexOf(correctAnswer);
+
+                    const optionsWithLabels = options.reduce((acc, option, index) => {
+                        acc[optionLabels[index]] = option;
+                        return acc;
+                    }, {});
+
+                    let correctAnswerOption = optionsWithLabels[correctAnswer];
+
+                    let question = items[i].Question;
+                    let currentQuestionIndex = 0;
+
+                    function updateButtonVisibility() {
+                        const prevButton = $(`#prev_id${currentQuestionIndex}`);
+                        const nextButton = $(`#next_id${currentQuestionIndex}`);
+
+                        prevButton.toggle(currentQuestionIndex > 0);
+
+                        nextButton.toggle(currentQuestionIndex < items.length - 1);
+                    }
+
+                    quizContent += `
+                    <div class="quize" id="quize_qution_${indexx + 1}_${i}" style="display:${i == 0 ? "block" : "none"}">
+                        <h4>Interactive Quiz</h4>
+                        <p>Question ${i + 1}/${questLength}</p>
+                        <div class="quize_qution" >
+                            <p>${question}</p>
+                            <form id="myForm${i}_${indexx}" style="margin-left: 10px; onsubmit="return false;">
+                                ${options.map((option, index) => `
+                                    <label class=''>
+                                        <input type="radio" name="options${i}_${indexx}" id="radio-${i}-${index}-${indexx}" value="${option}" > ${option}
+                                    </label>
+                                    <br>
+                                `).join('')}
+                                <br>
+                                <input type="submit" value="Submit" style="${buttonStyle}" id="submitButton${i}_${indexx}" onclick="enableSubmitButton(${i}, '${correctAnswer}', ${questLength}, '${course_name}', '${moduleName}','${i}_${indexx}','${indexx}')">
+                                <button id="next_id${i}_${indexx}" style="display: none;" class='buttonStyle' onclick="nextQuestion(event, ${i + 1}, ${questLength}, '_${indexx + 1}_${i + 1}')">Next Question</button>
+                            </form>
+                        </div>
+                    </div>`;
+                }
+                return quizContent;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+
+        function nextQuestion(event, nextStep, questLength, nextQuesID) {
+            event.preventDefault();
+            $(`#myForm${nextQuesID} input[type=radio]`).prop('disabled', true);
+            console.log('Current Step:', nextStep);
+            if (questLength > nextStep) {
+                $("#quize_qution" + nextQuesID).show().siblings().hide();
+            } else {
+                alert('Form submitted!');
+            }
+        }
+
+
+
+        function selectOption(option) {
+            selectedOption = option;
+        }
+
+        async function quizCheckAndUpdateItem(isComplete, quizScore, course_name, module_name) {
+            let email_id = _spPageContextInfo.userLoginName;
+            let apiBaseUrl = _spPageContextInfo.webAbsoluteUrl + `/_api/web/lists/getbytitle('quiz_completion')/items`;
+
+            // Build the filter query to find items associated with the user, course, and module
+            const filterQuery = `$filter=(Title eq '${email_id}' and courseName eq '${course_name}' and module eq '${module_name}')`;
+
+            // Combine the base URL with the filter query
+            const filteredApiUrl = `${apiBaseUrl}?${filterQuery}`;
+
+            try {
+                // Send a GET request to retrieve user-specific items
+                let response = await fetch(filteredApiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json;odata=verbose',
+                    },
+                });
+
+                if (response.ok) {
+                    // Check if an item exists for the user, course, and module
+                    let data = await response.json();
+
+                    if (data.d.results.length > 0) {
+                        // If the item exists, update it
+                        const existingItem = data.d.results[0];
+                        const itemId = existingItem.Id;
+                        await quizUpdateListItem(itemId, isComplete, quizScore, module_name);
+                    } else {
+                        // If the item doesn't exist, add a new item with a POST request
+                        await quizCreateListItem(email_id, isComplete, course_name, quizScore, module_name);
+                    }
+                } else {
+                    console.error('Error fetching user-specific items');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function quizUpdateListItem(itemId, isComplete, Score, module_name) {
+            var context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+            var list = context.get_web().get_lists().getByTitle('quiz_completion');
+            var item = list.getItemById(itemId);
+
+            item.set_item('isQuizCompleted', isComplete);
+            item.set_item('quizScore', Score);
+
+            item.update();
+            context.executeQueryAsync(
+                function () {
+                    console.log("Item updated successfully.");
+                },
+                function (sender, args) {
+                    console.log("Error updating item: " + args.get_message());
+                }
+            );
+        }
+
+        function quizCreateListItem(email_id, isComplete, course_name, quizScore, module_name) {
+            let context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+            let list = context.get_web().get_lists().getByTitle('quiz_completion');
+
+            let itemCreateInfo = new SP.ListItemCreationInformation();
+            let newItem = list.addItem(itemCreateInfo);
+
+            newItem.set_item('Title', email_id);
+            newItem.set_item('isQuizCompleted', isComplete);
+            newItem.set_item('quizScore', quizScore);
+            newItem.set_item('courseName', course_name);
+            newItem.set_item('module', module_name);
+
+            newItem.update();
+            context.load(newItem);
+
+            context.executeQueryAsync(
+                function () {
+                    console.log("Item created successfully. Item ID: " + newItem.get_id());
+                },
+                function (sender, args) {
+                    console.log("Error creating item: " + args.get_message());
+                }
+            );
+        }
+
+
+        function showTab(tabId, mianId, contenType) {
+            console.log(mianId);
+
+            $("#" + tabId).addClass('active').siblings().removeClass('active');
+            $("#" + mianId).addClass('active').siblings().removeClass('active');
+        }
+
+        function showTab(tabId, mianId, contenType, moudleName, indx) {
+            $("#" + tabId).addClass('active').siblings().removeClass('active');
+            $("#" + mianId).addClass('active').siblings().removeClass('active');
+        }
+        // TabIDs 
+        async function fetchAndRenderQuizContent(i, moduleName) {
+            const items = await fetchDynmQuizzesContent(i, moduleName);
+        }
+        async function dynTabContents(contents) {
+            debugger;
+            // console.log('dynamic contents',contents);
+            //tabContentsDynamic = "";
+            for (let i = 0; i < contents.length; i++) {
+
+                let activeIndex = i == 0 ? " active" : "";
+
+                if (contents[i].content_type == 'Text') {
+                    tabContentsDynamic += `
+            <div class="tab-content${activeIndex} tabu tabu${i + 1}" id="tab${i + 1}">
+                <div class="quize">
+                    <div class="quize_qution">
+                        ${contents[i].text_content}   
+                    </div>
+                    <div class="bottom_next">
+                        <span class="slide_move">
+                            <span style="display:${i == 0 ? "none" : ""}" onclick="prevTab(${i + 1})" id='$prev${i}'> Previous </span>
+                            <span style="display:${i== contents.length -1?"none":""}" onclick="nextTab(${i + 1})" id='$next${i}' class="move_next">Next</span>
+                            </span>
+                    </div>
+                </div>
+            </div>`;
+                } else if (contents[i].content_type == 'Video') {
+                    tabContentsDynamic += `
+            <div class="tab-content${activeIndex} tabu tabu${i + 1}" id="tab${i + 1}" >
+                <video id="video_content${i}" onended="checkVideoCompletion(video, ${contents})" width="640" height="360" style="width: 100%; height: auto;" controls >
+                    <source
+                        src="${contents[i].video_links}"
+                        type="video/mp4">   
+                    Your browser does not support the video tag.
+                </video>
+                <div class="bottom_next">
+                    <span class="slide_move">
+                        <span style="display:${i == 0 ? "none" : ""}" onclick="prevTab(${i + 1})" id='$prev${i}'> Previous </span>
+                        
+                        <span style="display:${i == contents.length - 1 ? "none" : ""}" onclick="nextTab(${i + 1})" id='$next${i}' class="move_next">Next</span>
+                        </span>
+                </div>
+            </div>`;
+                } else if (contents[i].content_type == 'Quiz') {
+                    console.log('content module is', contents[i].module);
+
+                    // Use Promise.all to wait for multiple asynchronous operations
+                    // let activeIndex = i == 0 ? " active" : "";
+                    tabContentsDynamic += `<div class="tab-content${activeIndex} tabu tabu${i + 1}" id="tab${i + 1}">`;
+                    const items = await fetchDynmQuizzesContent(i, contents[i].module);
+                    tabContentsDynamic += items;
+                    tabContentsDynamic += `</div>`;
+                }
+            }
+            $('#tabContentId').html(tabContentsDynamic);
+            courseContents(contents);
+        }
+
+        async function courseContents(contents) {
+            let dynmContents = "";
+            let tabContents = "";
+            // dynmContents += `<div class="welcome_course"><h4>${contents[0].module_id}</h4></div>`;
+            // let course_name_id = document.getElementById('course_name_id');
+            // course_name_id.innerHTML = contents[0].module_id.toUpperCase();
+
+            for (let i = 0; i < contents.length; i++) {
+
+                let iconSVGLocked = `<span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <g clip-path="url(#clip0_989_1976)">
+              <circle cx="10" cy="10" r="10" fill="#1F8354" />
+              <path d="M15.8307 5.83398L7.8099 13.8548L4.16406 10.209"
+                stroke="white" stroke-width="1.45833" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clippath id="clip0_989_1976">
+                <rect width="20" height="20" fill="white" />
+              </clippath>
+            </defs>
+          </svg></span>`;
+                let activeIndex = i == 0 ? " active" : "";
+                console.log('show tab module name', contents[i].module)
+                if (contents[i].content_type == 'Text') {
+                    dynmContents += `
+            <li class="tab${activeIndex}" id="li_tab${i + 1}" onclick="showTab('tab${i + 1}', 'li_tab${i + 1}', '${contents[i].content_type}')">
+                <p class="video_desscription_part">
+                    <span>
+                        ${iconSVGLocked} <span><strong>${contents[i].content_type}: </strong>${decodeURIComponent(contents[i].Title)}</span>
+                    </span>
+                    <span class="timing">${contents[i].duration} min</span>
+                </p>
+            </li>`;
+
+                } else if (contents[i].content_type == 'Video') {
+
+                    let currentUserID = _spPageContextInfo.userLoginName;
+
+                    async function fetchDynCourseComplContent() {
+                        console.log("called video content currentUserID", currentUserID);
+                        try {
+                            let apiEndpoint = `https://anheuserbuschinbev.sharepoint.com/sites/Sales-EUR/_api/web/lists/getbytitle('course_completion')/items?$filter=(Title eq '${currentUserID}')`;
+
+                            let response = await fetch(apiEndpoint, {
+                                method: "GET",
+                                headers: { Accept: "application/json;odata=verbose" },
+                            });
+
+                            if (response.ok) {
+                                let data = await response.json();
+                                // const courseComlData = data.d.results;
+                                // lastElapseTime(courseComlData)
+                                checkAndUpdateItem(data.d.results);
+                                console.log('checkAndUpdateItem course_completion data', data);
+                                return data;
+                            } else {
+                                throw new Error("Error fetching fetchDynmVideoContent data");
+                            }
+                        } catch (err) {
+                            console.error(err);
+                        }
+                    }
+
+
+                    let videoMat = contents[i].video_links;
+                    let source = document.createElement('source');
+                    let video = document.getElementById(`video_content${i}`);
+
+                    source.src = videoMat;
+                    source.type = 'video/mp4';
+
+                    if (video) {
+                        video.appendChild(source);
+
+                        let startTime = null;
+                        let lastUpdateTime = null;
+                        let totalElapsedTime = 0;
+
+                        video.addEventListener('play', function () {
+                            startTime = new Date();
+                            lastUpdateTime = startTime;
+                            console.log('Video is playing. Start time:', startTime);
+                        });
+
+                        video.addEventListener('timeupdate', function () {
+                            if (!video.paused && startTime !== null) {
+                                const currentTime = new Date();
+                                const elapsedSinceLastUpdate = (currentTime - lastUpdateTime) / 1000;
+                                totalElapsedTime += elapsedSinceLastUpdate;
+                                lastUpdateTime = currentTime;
+                                console.log("Elapsed Time since start: " + totalElapsedTime + " seconds");
+                            }
+                        });
+
+                        video.addEventListener('pause', function () {
+                            // Store the paused time only if the video was already playing
+                            if (startTime !== null) {
+                                const pausedTime = video.currentTime;
+                                console.log('Video is paused. Paused at:', pausedTime);
+                                console.log("title is", contents[i].Title)
+                                checkAndUpdateItem(totalElapsedTime, 0, contents[i].Title);
+                            }
+                        });
+
+                        video.addEventListener('ended', function () {
+                            // Video playback has ended
+                            checkAndUpdateItem(totalElapsedTime, 1, contents[i].Title);
+                        });
+
+                        video.addEventListener('play', function () {
+                            // If the video was paused before, resume from the paused time
+                            if (startTime !== null) {
+                                video.currentTime = video.currentTime; // Force update to last played position
+                            }
+                        });
+                    }
+
+                    // Move the checkVideoCompletion function outside the timeupdate event callback
+                    var totalDuration = 0;
+                    var watchedDuration = 0;
+                    function checkVideoCompletion(video, contents) {
+                        totalDuration = video.duration;
+                        watchedDuration = video.currentTime;
+
+                        if (watchedDuration.toFixed(2) >= totalDuration.toFixed(2)) {
+                            console.log("Video completed!");
+                            console.log("title is", contents[i].Title)                    // document.getElementsByClassName('tab active').addClass('completed')
+                            checkAndUpdateItem(totalDuration, 1, contents[i].Title);
+                            // Add your logic here
+                        } else {
+                            console.log("Video incompleted!");
+                            console.log("title is", contents[i].Title)
+                            checkAndUpdateItem(watchedDuration, 0, contents[i].Title);
+                        }
+                    }
+
+                    video.addEventListener('ended', function () {
+                        // Handle the end of the video
+                        console.log("Video ended!");
+                        // Call the checkVideoCompletion function with totalElapsedTime as 0 since the video has ended
+                        checkVideoCompletion(video, contents);
+                    });
+
+                    async function checkAndUpdateItem(Duration, Completion, course_name) {
+                        let urlParams = new URLSearchParams(window.location.search);
+                        let param1 = urlParams.get('param1');
+                        let email_id = _spPageContextInfo.userLoginName;
+                        let apiBaseUrl = _spPageContextInfo.webAbsoluteUrl + `/_api/web/lists/getbytitle('course_completion')/items`;
+                        encodedCourseName = encodeURIComponent(course_name);
+                        console.log('encode name', encodedCourseName)
+
+                        // Build the filter query to find items associated with the user and matching the title
+                        const filterQuery = `$filter=(Title eq '${email_id}' and courseName eq '${encodedCourseName}')`;
+
+                        // Combine the base URL with the filter query
+                        const filteredApiUrl = `${apiBaseUrl}?${filterQuery}`;
+                        console.log('filteredApiUrl is', filteredApiUrl)
+
+                        try {
+                            // Send a GET request to retrieve user-specific items
+                            let response = await fetch(filteredApiUrl, {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json;odata=verbose',
+                                },
+                            });
+
+                            if (response.ok) {
+                                // Check if an item exists for the user and title
+                                let data = await response.json();
+                                console.log("video completion data is", data
+                                )
+
+                                if (data.d.results.length > 0) {
+                                    // Item exists, update it with a PATCH request
+                                    const itemId = data.d.results[0].Id;
+                                    const updateUrl = `${apiBaseUrl}(${itemId})`;
+
+                                    // Update the existing item
+                                    updateListItem(itemId, Duration, Completion);
+                                } else {
+                                    createListItem(email_id, Duration, encodedCourseName, Completion);
+                                }
+                            } else {
+                                console.error('Error fetching user-specific items');
+                            }
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    }
+
+                    function updateListItem(itemId, Duration, Completion) {
+                        var context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+                        var list = context.get_web().get_lists().getByTitle('course_completion');
+                        var item = list.getItemById(itemId);
+                        item.set_item('Time', Duration);
+                        item.set_item('isComplete', Completion);
+                        item.set_item('isLastWatch', 1);
+
+                        item.update();
+                        context.executeQueryAsync(
+                            function () {
+                                console.log("Item updated successfully.");
+                            },
+                            function (sender, args) {
+                                console.log("Error updating item: " + args.get_message());
+                            }
+                        );
+                    }
+
+                    function createListItem(email_id, Duration, course_name, Completion) {
+                        let context = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);
+                        let list = context.get_web().get_lists().getByTitle('course_completion');
+
+                        let itemCreateInfo = new SP.ListItemCreationInformation();
+                        let newItem = list.addItem(itemCreateInfo);
+
+                        newItem.set_item('Title', email_id);
+                        newItem.set_item('Time', Duration);
+                        newItem.set_item('isComplete', Completion);
+                        newItem.set_item('isLastWatch', 1);
+                        newItem.set_item('courseName', decodeURIComponent(course_name));
+
+                        newItem.update();
+                        context.load(newItem);
+
+                        context.executeQueryAsync(
+                            function () {
+                                console.log("Item created successfully. Item ID: " + newItem.get_id());
+                            },
+                            function (sender, args) {
+                                console.log("Error creating item: " + args.get_message());
+                            }
+                        );
+                    }
+
+                    dynmContents += `
+                        <li class="tab${activeIndex}" id="li_tab${i + 1}" onclick="showTab('tab${i + 1}', 'li_tab${i + 1}', '${contents[i].content_type}')">
+                            <p class="video_desscription_part">
+                                <span>
+                                    ${iconSVGLocked} <span><strong>${contents[i].content_type}: </strong>${decodeURIComponent(contents[i].Title)}
+                                </span></span>
+                                <span class="timing">${contents[i].duration} min</span>
+                            </p>
+                        </li>`;
+                }
+                else if (contents[i].content_type == 'Quiz') {
+                    dynmContents += `
+                        <li class="tab${activeIndex}" id="li_tab${i + 1}" onclick="showTab('tab${i + 1}', 'li_tab${i + 1}', '${contents[i].content_type}','${contents[i].module}','${i}')">
+                            <p class="video_desscription_part">
+                                <span>
+                                    ${iconSVGLocked} <span><strong>${contents[i].content_type}: </strong>${decodeURIComponent(contents[i].Title)}</span>
+                                </span>
+                                <span class="timing">${contents[i].duration} min</span>
+                            </p>
+                        </li>`;
+                }
+            }
+            $('#dynmContents').html(dynmContents);
+        }
+    </script>
+    <!-- Include SweetAlert CDN -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        var quizScoredCorrect = 0;
+        var quizScoredIncorrect = 0;
+
+        function enableSubmitButton(questionIndex, correctAnswer, questL, courseName, module_name, quesID, index) {
+            event.preventDefault();
+            const checkedOption = $(`input[name="options${quesID}"]:checked`);
+
+            // Check if a radio button is selected
+            if (!checkedOption.length) {
+                alert("Please select an answer before submitting.");
+                return;
+            }
+            $(`#myForm${quesID} input[type=radio]`).prop('disabled', true);
+            selectedOption = checkedOption.val();
+            const nextButton = document.getElementById(`next_id${quesID}`);
+            let submitButton = $(`#submitButton${quesID}`);
+            let label = checkedOption.closest('label');
+
+            if (!selectedOption.length) {
+                return;
+            }
+
+            const isCorrect = selectedOption.trim() === correctAnswer;
+
+            if (isCorrect) {
+                $(`#next_id${questionIndex}`, `#myForm${quesID}`).show();
+                submitButton.prop('disabled', false);
+                label.addClass('correct');
+                label.append('<span class="feedback" style="background: transparent;color: green;">Correct &#10004;</span>');
+                nextButton.style.display = 'block';
+                document.getElementById(`submitButton${quesID}`).style.display = 'none';
+                document.getElementById(`next_id${quesID}`).style.display = 'block';
+                quizScoredCorrect++;
+                console.log('quizScoredCorrect ', quizScoredCorrect);
+            } else {
+                $(`input[name="options${quesID}"]`, `#myForm${quesID}`).attr('disabled', false);
+                submitButton.prop('disabled', false);
+                label.addClass('incorrect');
+                label.append('<span class="feedback" style="background: transparent;color: red;">Incorrect &#10008;</span>');
+                label.find('input:checked + span.feedback').css('color', 'red');
+                console.log($(`input[value="${correctAnswer}"]`));
+                const correct = $(`input[value="${correctAnswer}"]`).val();
+                console.log(correct);
+                $(`input[value="${correctAnswer}"]`, `#myForm${quesID}`).closest('label').append('<span class="feedback" style="background: transparent;color: green;">Correct &#10004;</span>').css('color', 'green');
+                nextButton.style.display = 'block';
+                document.getElementById(`submitButton${quesID}`).style.display = 'none';
+                document.getElementById(`next_id${quesID}`).style.display = 'block';
+                quizScoredIncorrect++;
+                console.log('quizScoredIncorrect ', quizScoredIncorrect);
+            }
+
+            if (questionIndex == questL - 1) {
+                console.log('module_name now', module_name);
+                console.log('questionIndex ', questL - 1);
+                console.log('questionIndex == questL - 1', questionIndex == questL - 1);
+                let scroedPercentage = (quizScoredCorrect * 100) / (quizScoredCorrect + quizScoredIncorrect);
+
+                quizCheckAndUpdateItem(1, scroedPercentage.toFixed(2), courseName, module_name);
+                fetchDynmQuizzesContent();
+                document.getElementById(`next_id${quesID}`).style.display = 'none';
+                document.getElementById(`submitButton${quesID}`).style.display = 'none';
+                isQuizCompl = true;
+
+                setTimeout(() => {
+                    const message = scroedPercentage >= 50
+                        ? `You completed the quiz with a score of ${scroedPercentage.toFixed(2)}%.`
+                        : 'Unfortunately, you did not clear the quiz.';
+
+                    const icon = scroedPercentage >= 50 ? 'success' : 'error';
+
+                    Swal.fire({
+                        title: scroedPercentage >= 50 ? 'Congratulations!' : 'Quiz Not Cleared',
+                        text: message,
+                        icon: icon,
+                        confirmButtonText: 'OK',
+                        backdrop: true,
+                        backdropOpacity: 0.4
+                    }).then((result) => {
+                        // Target an existing element outside the popup and add classes
+                        const outsideElement = document.querySelector('.your-outside-element-selector'); // Replace with your selector
+                        if (outsideElement) {
+                            outsideElement.classList.add('banner_top', 'course_over');
+                        }
+
+                        if (result.isConfirmed && scroedPercentage >= 50) {
+                            console.log('quiz completed', parseInt(index) + 2)
+                            let tabElement = document.getElementById(`li_tab${parseInt(index) + 2}`);
+                            console.log('tab elmemsts', tabElement)
+                            if (tabElement) {
+                                tabElement.click();
+                            }
+                        } else {
+                            console.log('quiz completed', parseInt(index))
+                            let tabElement = document.getElementById(`li_tab${parseInt(index)}`);
+                            console.log('tab elmemsts', tabElement)
+                            if (tabElement) {
+                                tabElement.click();
+                            }
+                        }
+                    });
+                }, 2000);
+
+                quizScoredCorrect = 0;
+                quizScoredIncorrect = 0;
+            }
+        }
+    </script>
+
+    <script>
+        function nextTab(currentTab) {
+            const nextTab = currentTab + 1;
+            $("#li_tab"+ nextTab).addClass('active').siblings().removeClass('active')
+
+            // Hide the current tab
+            document.querySelector(`.tabu${currentTab}`).classList.remove('active');
+
+            // Show the next tab
+            
+            const nextTabElement = document.querySelector(`.tabu${nextTab}`);
+
+            if (nextTabElement) {
+                nextTabElement.classList.add('active');
+            } else {
+                // If there is no next tab, you can submit the form or take appropriate action
+                alert('Form submitted!');
+            }
+        }
+
+        function prevTab(currentTab) {
+            const prevTab = currentTab - 1;
+            $("#li_tab" + prevTab).addClass('active').siblings().removeClass('active')
+            // Hide the current tab
+            document.querySelector(`.tabu${currentTab}`).classList.remove('active');
+
+            // Show the previous tab
+            
+            const prevTabElement = document.querySelector(`.tabu${prevTab}`);
+
+            if (prevTabElement) {
+                prevTabElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>
